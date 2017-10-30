@@ -1,4 +1,5 @@
 <?php
+
 namespace Tests\Unit;
 
 use GuzzleHttp\Psr7\Response;
@@ -7,7 +8,6 @@ use Tests\UnitTestCase;
 
 class ListableTest extends UnitTestCase
 {
-
     private $listable;
     private $jsonString = '{"data": [
         {
@@ -55,7 +55,6 @@ class ListableTest extends UnitTestCase
         $this->assertEquals('1', $page);
     }
 
-
     public function testNextPage()
     {
         $this->listable->setCurrentPage('1');
@@ -89,19 +88,15 @@ class ListableTest extends UnitTestCase
 
     public function testProcessList()
     {
-
         $payload = json_decode($this->jsonString);
-
 
         $collection = $this->listable->processList($payload);
 
         $this->assertEquals('57ed4ce3057e0b002adc6d90', $collection->first()->id);
     }
 
-
-    public function testGetList($page = NULL, $perPage = NULL)
+    public function testGetList($page = null, $perPage = null)
     {
-
         $responses = [new Response(200, [], $this->jsonString)];
         $adverseItems = $this->getClient($responses)->adverse_items()->getList();
         $this->assertEquals('Lyal\Checkr\Entities\Resources\AdverseItem', get_class($adverseItems->first()));

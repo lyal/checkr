@@ -1,12 +1,11 @@
 <?php
-namespace Lyal\Checkr\Entities\Resources;
 
+namespace Lyal\Checkr\Entities\Resources;
 
 class Verification extends AbstractResource
 {
-    public function __construct($values = NULL, $client = NULL)
+    public function __construct($values = null, $client = null)
     {
-
         $this->setFields(
             [
                 'id',
@@ -15,12 +14,10 @@ class Verification extends AbstractResource
                 'created_at',
                 'completed_at',
                 'verification_type',
-                'verification_url'
+                'verification_url',
             ]
         );
 
         parent::__construct($values, $client);
-
     }
-
 }

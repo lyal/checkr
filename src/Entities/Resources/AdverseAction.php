@@ -1,4 +1,5 @@
 <?php
+
 namespace Lyal\Checkr\Entities\Resources;
 
 use Lyal\Checkr\Traits\Creatable;
@@ -11,11 +12,11 @@ class AdverseAction extends AbstractResource
 
     /**
      * AdverseAction constructor.
+     *
      * @param null $values
      * @param null $client
      */
-
-    public function __construct($values = NULL, $client = NULL)
+    public function __construct($values = null, $client = null)
     {
         $this->setFields([
             'id',
@@ -27,14 +28,11 @@ class AdverseAction extends AbstractResource
             'post_notice_scheduled_at',
             'post_notice_ready_at',
             'canceled_at',
-            'adverse_items']);
+            'adverse_items', ]);
 
         $this->setCreatePath('reports/:report_id/adverse_actions');
         $this->setDeletePath('reports/:report_id/adverse_actions');
 
-
         parent::__construct($values, $client);
-
-
     }
 }

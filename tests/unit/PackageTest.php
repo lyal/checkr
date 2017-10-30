@@ -1,4 +1,5 @@
 <?php
+
 namespace Tests\Unit;
 
 use Lyal\Checkr\Entities\Resources\Package;
@@ -21,25 +22,24 @@ class PackageTest extends UnitTestCase
     public function testFields()
     {
         $values = [
-            'id' => 'e44aa283528e6fde7d542194',
-            'object' => 'package',
-            'uri' => '/v1/packages/e44aa283528e6fde7d542194',
+            'id'         => 'e44aa283528e6fde7d542194',
+            'object'     => 'package',
+            'uri'        => '/v1/packages/e44aa283528e6fde7d542194',
             'created_at' => '2014-01-18T12:34:00Z',
-            'name' => 'Criminal Pro',
-            'slug' => 'criminal_pro',
-            'price' => 6500,
-            'screenings' =>
-                [
+            'name'       => 'Criminal Pro',
+            'slug'       => 'criminal_pro',
+            'price'      => 6500,
+            'screenings' => [
                     [
-                        'type' => 'ssn_trace',
-                        'subtype' => NULL,
+                        'type'    => 'ssn_trace',
+                        'subtype' => null,
                     ],
                     [
-                        'type' => 'county_criminal_search',
+                        'type'    => 'county_criminal_search',
                         'subtype' => '7years',
 
-                    ]
-                ]
+                    ],
+                ],
         ];
 
         $package = $this->getPackage($values);
@@ -51,11 +51,10 @@ class PackageTest extends UnitTestCase
 
             $this->assertEquals($value, $package->{$key});
         }
-
     }
 
-    protected function getPackage($values = NULL)
+    protected function getPackage($values = null)
     {
-        return new Package($values,$this->getClient());
+        return new Package($values, $this->getClient());
     }
 }

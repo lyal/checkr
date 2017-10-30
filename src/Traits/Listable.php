@@ -1,9 +1,9 @@
 <?php
+
 namespace Lyal\Checkr\Traits;
 
 trait Listable
 {
-
     protected $listPath;
 
     private $perPage = 25;
@@ -23,13 +23,11 @@ trait Listable
         return $this->listPath;
     }
 
-
     /**
-     * Number of results to return per request
+     * Number of results to return per request.
      *
      * @return int
      */
-
     public function getPerPage() : int
     {
         return $this->perPage;
@@ -37,34 +35,33 @@ trait Listable
 
     /**
      * @param int $perPage
+     *
      * @return $this
      */
-
-
     public function setPerPage(int $perPage)
     {
         $this->perPage = $perPage;
         $this->setAttribute('per_page', $perPage);
+
         return $this;
     }
 
     /**
      * @param int $currentPage
+     *
      * @return $this
      */
-
     public function setCurrentPage(int $currentPage)
     {
         $this->currentPage = $currentPage;
         $this->setAttribute('page', $currentPage);
+
         return $this;
     }
 
     /**
      * @return int
      */
-
-
     public function getCurrentPage() : int
     {
         return $this->currentPage;
@@ -85,10 +82,11 @@ trait Listable
         return $this->count = $count;
     }
 
-    public function setPagination($page = NULL, $perPage = NULL)
+    public function setPagination($page = null, $perPage = null)
     {
         $this->setCurrentPage($page ?? $this->getCurrentPage());
         $this->setPerPage($perPage ?? $this->getPerPage());
+
         return $this;
     }
 
@@ -102,21 +100,20 @@ trait Listable
         return $this->hasNextPage = (($this->getPerPage() * $this->getCurrentPage()) < $this->getCount());
     }
 
-
-    public function getList($page = NULL, $perPage = NULL)
+    public function getList($page = null, $perPage = null)
     {
         $this->setPagination($page, $perPage);
 
-        $path = $this->getListPath() ?? NULL;
+        $path = $this->getListPath() ?? null;
 
         return $this->processList($this->getRequest($this->processPath($path)));
     }
 
     /**
      * @param \stdClass $items
+     *
      * @return \Illuminate\Support\Collection|array
      */
-
     public function processList($items)
     {
         $list = [];
@@ -124,13 +121,12 @@ trait Listable
         $this->setCount($items->count);
         $this->setNextPage();
 
-        foreach ((array)$items->data as $item) {
+        foreach ((array) $items->data as $item) {
             $list[] = new $this($item, $this->getClient());
         }
 
         return $this->getClient()->useCollections ? collect($list) : $list;
     }
-
 
     public function all()
     {
@@ -143,6 +139,4 @@ trait Listable
 
         return $this->getClient()->useCollections ? $list : $list->toArray();
     }
-
-
 }

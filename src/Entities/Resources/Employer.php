@@ -1,6 +1,6 @@
 <?php
-namespace Lyal\Checkr\Entities\Resources;
 
+namespace Lyal\Checkr\Entities\Resources;
 
 use Lyal\Checkr\Traits\Deleteable;
 use Lyal\Checkr\Traits\Listable;
@@ -10,7 +10,7 @@ class Employer extends AbstractResource
 {
     use Listable, Saveable, Deleteable;
 
-    public function __construct($values = NULL, $client = NULL)
+    public function __construct($values = null, $client = null)
     {
         $this->setFields(
             [
@@ -27,7 +27,7 @@ class Employer extends AbstractResource
                 'end_date',
                 'employer_url',
                 'address',
-                'manager'
+                'manager',
             ]
         );
 
@@ -37,8 +37,5 @@ class Employer extends AbstractResource
         $this->setDeletePath('candidates/:candidate_id/employers/:id');
 
         parent::__construct($values, $client);
-
-
     }
-
 }
