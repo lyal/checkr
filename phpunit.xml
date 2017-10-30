@@ -8,10 +8,10 @@
          convertWarningsToExceptions="true"
          processIsolation="false"
          stopOnFailure="false">
-    <php>
-        <env name="checkr_test_key" value="ef2499ef789a531d2df93037590e467effaefa43"/>
-    </php>
     <testsuites>
+        <testsuite name="Unit">
+            <directory suffix="Test.php">./tests/unit</directory>
+        </testsuite>
         <testsuite name="API">
             <directory suffix="Test.php">./tests/api</directory>
         </testsuite>
