@@ -1,4 +1,15 @@
-# CHeckr for PHP
+# Checkr for PHP
 
 [![Build Status](https://travis-ci.org/lyal/checkr.svg?branch=master)](https://travis-ci.org/lyal/checkr)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/lyal/checkr/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/lyal/checkr/?branch=master)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/lyal/checkr/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/lyal/checkr/?branch=master)]
+[![StyleCI](https://styleci.io/repos/108857357/shield?branch=master)](https://styleci.io/repos/108857357)
+
+# Requirements
+
+# Installation
+
+# Basic Usage
+
+# Contributing
+
+
