@@ -24,6 +24,8 @@ trait Listable
 
     abstract public function getAttribute($key);
 
+    abstract public function setAttribute($key, $value);
+
     abstract protected function getRequest($path = null, $parameters = null);
 
 

@@ -24,6 +24,7 @@ trait Creatable
 
     abstract public function setValues($values);
 
+    abstract public function setAttributes(array $values);
 
     protected $createPath;
 
