@@ -124,7 +124,7 @@ class Client
      * @return void
      */
 
-    public function setKey($key) : void
+    public function setKey($key)
     {
         $this->key = $key;
     }
@@ -135,7 +135,7 @@ class Client
      * @return string
      */
 
-    public function getKey() : string
+    public function getKey()
     {
         return $this->key ?: env('checkr_api_key', NULL);
     }
@@ -229,7 +229,7 @@ class Client
      * @return string
      */
 
-    public function getApiEndPoint() : string
+    public function getApiEndPoint()
     {
         return 'https://api.checkr.com/v1/';
     }
@@ -247,7 +247,7 @@ class Client
      * @throws \Lyal\Checkr\Exceptions\UnhandledRequestError
      */
 
-    private function handleError(BadResponseException $exception) : void
+    private function handleError(BadResponseException $exception)
     {
 
         $body = $exception->getResponse()->getBody();
