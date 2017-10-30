@@ -44,12 +44,16 @@ class Client
      */
 
 
-    public function setHttpClient(GuzzleClient $client) : void
+    public function setHttpClient(GuzzleClient $client)
     {
         $this->guzzle = $client;
     }
 
-    public function getHttpClient() : GuzzleClient
+    /**
+     * @return mixed
+     */
+
+    public function getHttpClient()
     {
         return $this->guzzle;
     }
