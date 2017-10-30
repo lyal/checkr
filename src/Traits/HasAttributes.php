@@ -26,7 +26,7 @@ trait HasAttributes
 
     /**
      * @param $key
-     * @return \Illuminate\Support\Collection|mixed|null
+     * @return mixed
      * @throws InvalidAttributeException
      */
     public function __get($key)
@@ -168,13 +168,11 @@ trait HasAttributes
 
     /**
      * Set a hidden attributes array
-     *
-     * @param $key
-     * @param $name
+     * @param array $hidden
      * @return mixed
      */
 
-    protected function setHidden($hidden)
+    protected function setHidden(array $hidden)
     {
         return $this->hidden = $hidden;
     }
