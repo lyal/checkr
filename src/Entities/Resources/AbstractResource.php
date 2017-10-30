@@ -23,7 +23,7 @@ abstract class AbstractResource extends AbstractEntity
      * AbstractResource constructor.
      *
      * @param null|array $values
-     * @param Client $client
+     * @param Client     $client
      */
     public function __construct($values, Client $client)
     {
