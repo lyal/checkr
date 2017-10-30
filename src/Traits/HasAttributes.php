@@ -6,6 +6,9 @@ use Lyal\Checkr\Exceptions\InvalidAttributeException;
 
 trait HasAttributes
 {
+
+    abstract public function getFields();
+
     /**
      * The entity's attributes.
      *

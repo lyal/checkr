@@ -10,6 +10,8 @@ trait Getable
      * Abstract functions to imppose requirements for the exhibiting class
      */
 
+    abstract public function getAttribute($key);
+
     abstract public function getResourceName($object = null);
 
     abstract public function getAttributes($sanitized = true);
@@ -19,6 +21,8 @@ trait Getable
     abstract public function getClient();
 
     abstract public function setValues($values);
+
+    abstract public function setAttributes(array $values);
 
     /**
      * Make a get request against the path.

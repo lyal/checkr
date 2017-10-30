@@ -22,6 +22,11 @@ trait Listable
 
     abstract public function setValues($values);
 
+    abstract public function getAttribute($key);
+
+    abstract protected function getRequest($path = null, $parameters = null);
+
+
     protected $listPath;
 
     private $perPage = 25;

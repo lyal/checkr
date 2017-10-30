@@ -53,7 +53,7 @@ abstract class AbstractEntity
     }
 
     /**
-     * @param \StdClass|string $values
+     * @param \StdClass|array|string $values
      *
      * return void
      */
@@ -65,7 +65,6 @@ abstract class AbstractEntity
          */
         if (is_string($values)) {
             $this->setAttribute('id', $values);
-
             return;
         }
 
@@ -107,11 +106,11 @@ abstract class AbstractEntity
     /**
      * Set the client object; Client also handles routing between resources.
      *
-     * @param Client $client
+     * @param Client|null $client
      *
      * @return void;
      */
-    public function setClient(Client $client)
+    public function setClient(Client $client = null)
     {
         $this->client = $client;
     }

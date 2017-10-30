@@ -14,7 +14,7 @@ class Invitation extends AbstractResource
     /**
      * Invitation constructor.
      *
-     * @param null        $values
+     * @param array|null $values
      * @param Client|null $client
      */
     public function __construct($values = null, Client $client = null)

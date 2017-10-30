@@ -15,6 +15,10 @@ trait Deleteable
 
     abstract public function getAttributes($sanitized = true);
 
+    abstract public function getAttribute($key);
+
+    abstract public function setAttribute($key, $value);
+
     abstract public function processPath($path = null, array $values = null);
 
     abstract public function postRequest($path, array $options = []);

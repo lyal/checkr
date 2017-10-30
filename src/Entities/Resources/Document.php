@@ -45,7 +45,7 @@ class Document extends AbstractResource
      */
     public function upload($type, $file, $candidateId = null)
     {
-        if ($candidateId) {
+        if ($candidateId !== null) {
             $this->setAttribute('candidate_id', $candidateId);
         }
 
