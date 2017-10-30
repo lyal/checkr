@@ -1,4 +1,5 @@
 <?php
+
 namespace Lyal\Checkr\Entities\Resources;
 
 use Lyal\Checkr\Traits\Listable;
@@ -7,7 +8,7 @@ class Program extends AbstractResource
 {
     use Listable;
 
-    public function __construct($values = NULL, $client = NULL)
+    public function __construct($values = null, $client = null)
     {
         $this->setFields([
             'id',
@@ -17,9 +18,8 @@ class Program extends AbstractResource
             'created_at',
             'deleted_at',
             'package_ids',
-            'geo_ids'
+            'geo_ids',
         ]);
         parent::__construct($values, $client);
-
     }
 }

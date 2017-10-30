@@ -1,12 +1,11 @@
 <?php
-namespace Lyal\Checkr\Entities\Resources;
 
+namespace Lyal\Checkr\Entities\Resources;
 
 class Subscription extends AbstractResource
 {
-    public function __construct($values = NULL, $client = NULL)
+    public function __construct($values = null, $client = null)
     {
-
         $this->setFields([
             'id',
             'object',
@@ -19,10 +18,9 @@ class Subscription extends AbstractResource
             'interval_count',
             'interval_unit',
             'start_date',
-            'candidate_id'
+            'candidate_id',
         ]);
 
         parent::__construct($values, $client);
-
     }
 }

@@ -1,6 +1,6 @@
 <?php
-namespace Lyal\Checkr\Entities\Screenings;
 
+namespace Lyal\Checkr\Entities\Screenings;
 
 class MotorVehicleReport extends AbstractScreening
 {

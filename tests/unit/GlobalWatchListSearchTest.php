@@ -1,4 +1,5 @@
 <?php
+
 namespace Tests\Unit;
 
 use Lyal\Checkr\Entities\Screenings\GlobalWatchlistSearch;
@@ -21,44 +22,44 @@ class GlobalWatchListSearchTest extends UnitTestCase
     public function testFields()
     {
         $values = [
-            'id' => '539fd88c101897f7cd000008',
-            'object' => 'global_watchlist_search',
-            'uri' => '/v1/global_watchlist_searches/539fd88c101897f7cd000008',
-            'status' => 'consider',
-            'created_at' => '2014-01-18T12:34:00Z',
-            'completed_at' => '2014-01-18T12:35:30Z',
+            'id'              => '539fd88c101897f7cd000008',
+            'object'          => 'global_watchlist_search',
+            'uri'             => '/v1/global_watchlist_searches/539fd88c101897f7cd000008',
+            'status'          => 'consider',
+            'created_at'      => '2014-01-18T12:34:00Z',
+            'completed_at'    => '2014-01-18T12:35:30Z',
             'turnaround_time' => 90,
-            'records' => [
+            'records'         => [
                 [
-                    'case_number' => '24323-DA',
-                    'file_date' => NULL,
-                    'arresting_agency' => 'DEA Boston Division',
-                    'court_jurisdiction' => NULL,
-                    'court_of_record' => NULL,
-                    'dob' => '1970-01-22',
-                    'full_name' => 'John Alfred Smith',
-                    'charges' => [
+                    'case_number'        => '24323-DA',
+                    'file_date'          => null,
+                    'arresting_agency'   => 'DEA Boston Division',
+                    'court_jurisdiction' => null,
+                    'court_of_record'    => null,
+                    'dob'                => '1970-01-22',
+                    'full_name'          => 'John Alfred Smith',
+                    'charges'            => [
                         [
-                            'charge' => 'RICO murder',
-                            'charge_type' => NULL,
-                            'charge_id' => NULL,
-                            'classification' => 'Felony',
-                            'deposition' => NULL,
-                            'defendant' => NULL,
-                            'plaintiff' => NULL,
-                            'sentence' => 'Active Punishment Minimum: 10Y',
-                            'disposition' => 'Guilty',
-                            'probation_status' => NULL,
-                            'offense_date' => '2011-04-22',
-                            'deposition_date' => '2014-05-27',
-                            'arrest_date' => NULL,
-                            'charge_date' => NULL,
-                            'sentence_date' => NULL,
+                            'charge'           => 'RICO murder',
+                            'charge_type'      => null,
+                            'charge_id'        => null,
+                            'classification'   => 'Felony',
+                            'deposition'       => null,
+                            'defendant'        => null,
+                            'plaintiff'        => null,
+                            'sentence'         => 'Active Punishment Minimum: 10Y',
+                            'disposition'      => 'Guilty',
+                            'probation_status' => null,
+                            'offense_date'     => '2011-04-22',
+                            'deposition_date'  => '2014-05-27',
+                            'arrest_date'      => null,
+                            'charge_date'      => null,
+                            'sentence_date'    => null,
                             'disposition_date' => '2011-06-02',
-                        ]
-                    ]
-                ]
-            ]
+                        ],
+                    ],
+                ],
+            ],
         ];
         $globalWatchListSearch = $this->getGlobalWatchListSearch($values);
 
@@ -69,11 +70,10 @@ class GlobalWatchListSearchTest extends UnitTestCase
 
             $this->assertEquals($value, $globalWatchListSearch->{$key});
         }
-
     }
 
-    protected function getGlobalWatchListSearch($values = NULL)
+    protected function getGlobalWatchListSearch($values = null)
     {
-        return new GlobalWatchlistSearch($values,$this->getClient());
+        return new GlobalWatchlistSearch($values, $this->getClient());
     }
 }

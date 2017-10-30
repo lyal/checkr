@@ -1,6 +1,6 @@
 <?php
-namespace Lyal\Checkr\Entities\Resources;
 
+namespace Lyal\Checkr\Entities\Resources;
 
 use Lyal\Checkr\Traits\Deleteable;
 
@@ -8,7 +8,7 @@ class Geo extends AbstractResource
 {
     use Deleteable;
 
-    public function __construct($values = NULL, $client = NULL)
+    public function __construct($values = null, $client = null)
     {
         $this->setFields([
             'id',
@@ -17,7 +17,7 @@ class Geo extends AbstractResource
             'created_at',
             'name',
             'state',
-            'deleted_at'
+            'deleted_at',
         ]);
 
         $this->setHidden([
@@ -26,7 +26,5 @@ class Geo extends AbstractResource
         ]);
 
         parent::__construct($values, $client);
-
-
     }
 }

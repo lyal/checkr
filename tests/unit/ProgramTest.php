@@ -1,4 +1,5 @@
 <?php
+
 namespace Tests\Unit;
 
 use Lyal\Checkr\Entities\Resources\Program;
@@ -15,25 +16,23 @@ class ProgramTest extends UnitTestCase
     {
         $program = $this->getProgram();
         $program->id = 'e44aa283528e6fde7d542194';
-        $this->assertSame('e44aa283528e6fde7d542194',$program->id);
+        $this->assertSame('e44aa283528e6fde7d542194', $program->id);
     }
 
     public function testFields()
     {
         $values = [
-            'id' => '00166f9ff39ec7b453adfaec',
-            'object' => 'program',
-            'name' => 'Program A',
+            'id'         => '00166f9ff39ec7b453adfaec',
+            'object'     => 'program',
+            'name'       => 'Program A',
             'created_at' => '2017-08-07T16:51:09Z',
-            'deleted_at' => NULL,
-            'geo_ids' =>
-                [
+            'deleted_at' => null,
+            'geo_ids'    => [
                     'cbc37748bc6a45b41af5c3f5',
                 ],
-            'package_ids' =>
-                [
+            'package_ids' => [
                     'a57a0cd15965a585ff7d5d35',
-                ]
+                ],
         ];
 
         $program = $this->getProgram($values);
@@ -45,11 +44,10 @@ class ProgramTest extends UnitTestCase
 
             $this->assertEquals($value, $program->{$key});
         }
-
     }
 
-    protected function getProgram($values = NULL)
+    protected function getProgram($values = null)
     {
-        return new Program($values,$this->getClient());
+        return new Program($values, $this->getClient());
     }
 }

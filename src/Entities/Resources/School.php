@@ -1,6 +1,6 @@
 <?php
-namespace Lyal\Checkr\Entities\Resources;
 
+namespace Lyal\Checkr\Entities\Resources;
 
 use Lyal\Checkr\Traits\Creatable;
 use Lyal\Checkr\Traits\Deleteable;
@@ -10,7 +10,7 @@ class School extends AbstractResource
 {
     use Listable, Creatable, Deleteable;
 
-    public function __construct($values = NULL, $client = NULL)
+    public function __construct($values = null, $client = null)
     {
         $this->setFields([
             'id',
@@ -27,7 +27,7 @@ class School extends AbstractResource
             'current',
             'school_url',
             'address',
-            'candidate_id'
+            'candidate_id',
         ]);
 
         $this->setLoadPath('candidates/:candidate_id/schools/:id');
@@ -36,9 +36,5 @@ class School extends AbstractResource
         $this->setDeletePath('candidates/:candidate_id/employers/:id');
 
         parent::__construct($values, $client);
-
-
     }
-
-
 }

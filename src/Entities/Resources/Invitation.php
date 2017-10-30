@@ -1,6 +1,6 @@
 <?php
-namespace Lyal\Checkr\Entities\Resources;
 
+namespace Lyal\Checkr\Entities\Resources;
 
 use Lyal\Checkr\Traits\Creatable;
 use Lyal\Checkr\Traits\Deleteable;
@@ -10,7 +10,7 @@ class Invitation extends AbstractResource
 {
     use Listable, Creatable, Deleteable;
 
-    public function __construct($values = NULL, $client = NULL)
+    public function __construct($values = null, $client = null)
     {
         $this->setFields([
             'id',
@@ -23,9 +23,8 @@ class Invitation extends AbstractResource
             'deleted_at',
             'completed_at',
             'package',
-            'candidate_id'
+            'candidate_id',
         ]);
         parent::__construct($values, $client);
-
     }
 }

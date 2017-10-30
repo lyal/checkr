@@ -1,6 +1,6 @@
 <?php
-namespace Lyal\Checkr\Entities\Resources;
 
+namespace Lyal\Checkr\Entities\Resources;
 
 use Lyal\Checkr\Traits\Creatable;
 use Lyal\Checkr\Traits\Saveable;
@@ -9,7 +9,7 @@ class Report extends AbstractResource
 {
     use Creatable, Saveable;
 
-    public function __construct($values = NULL, $client = NULL)
+    public function __construct($values = null, $client = null)
     {
         $this->setFields([
             'id',
@@ -43,9 +43,8 @@ class Report extends AbstractResource
             'facis_search_id',
             'document_ids',
             'geo_ids',
-            'tags'
+            'tags',
         ]);
         parent::__construct($values, $client);
-
     }
 }

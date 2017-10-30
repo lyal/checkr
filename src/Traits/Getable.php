@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Lyal\Checkr\Traits;
 
 trait Getable
@@ -8,42 +7,42 @@ trait Getable
     private $getPath;
 
     /**
-     * Make a get request against the path
+     * Make a get request against the path.
      *
      * Note: options for Guzzle are set/handled on the Client
      *
      * @param string|null $path
+     *
      * @return mixed
      */
-
-    protected function getRequest($path = NULL, $parameters = NULL)
+    protected function getRequest($path = null, $parameters = null)
     {
         $parameters = $parameters ?? $this->getAttributes();
-
 
         if (method_exists($this, 'getEmbeddedResources')) {
             $parameters['include'] = $this->getEmbeddedResources();
         }
 
         if ($parameters) {
-            $path .= '?' . http_build_query($parameters);
+            $path .= '?'.http_build_query($parameters);
         }
+
         return $this->getClient()->request('get', $path);
     }
 
     /**
-     * Load a resource via a get call
+     * Load a resource via a get call.
      *
      * @param array|null $parameters
      *
      * @return $this
      */
-
-    public function load(array $parameters = NULL)
+    public function load(array $parameters = null)
     {
         $parameters = $parameters ?? ['id' => $this->getAttribute('id')];
-        $path = $this->processPath($this->getLoadPath() ?? $this->getResourceName() . '/' . $this->getAttribute('id'));
+        $path = $this->processPath($this->getLoadPath() ?? $this->getResourceName().'/'.$this->getAttribute('id'));
         $this->setValues($this->getRequest($path, $parameters));
+
         return $this;
     }
 
@@ -56,6 +55,4 @@ trait Getable
     {
         $this->getPath = $path;
     }
-
-
 }

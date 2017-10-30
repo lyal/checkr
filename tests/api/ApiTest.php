@@ -1,4 +1,5 @@
 <?php
+
 namespace Tests\Api;
 
 use Lyal\Checkr\Entities\Resources\Candidate;
@@ -7,20 +8,19 @@ use Tests\ApiTestCase;
 
 class ApiTest extends ApiTestCase
 {
-
     private $candidate;
 
     public function setup()
     {
         parent::setUp();
         $this->candidate = $this->getClient()->candidate([
-            'first_name' => 'John',
+            'first_name'  => 'John',
             'middle_name' => 'James',
-            'last_name' => 'Allen',
-            'ssn' => '111-11-2002',
-            'dob' => '1980-01-01',
-            'zipcode' => '90210',
-            'email' => 'bademail@bademail.com'])->create();
+            'last_name'   => 'Allen',
+            'ssn'         => '111-11-2002',
+            'dob'         => '1980-01-01',
+            'zipcode'     => '90210',
+            'email'       => 'bademail@bademail.com', ])->create();
     }
 
     public function testBadRequest()
@@ -45,5 +45,4 @@ class ApiTest extends ApiTestCase
         $candidates = $this->getClient()->candidate()->all();
         $this->assertInstanceOf(Candidate::class, $candidates->first());
     }
-
 }

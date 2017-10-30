@@ -1,13 +1,11 @@
 <?php
-namespace Lyal\Checkr\Entities\Resources;
 
+namespace Lyal\Checkr\Entities\Resources;
 
 class Document extends AbstractResource
 {
-
-    public function __construct($values = NULL, $client = NULL)
+    public function __construct($values = null, $client = null)
     {
-
         $this->setFields([
             'id',
             'object',
@@ -17,28 +15,27 @@ class Document extends AbstractResource
             'filesize',
             'filename',
             'content_type',
-            'candidate_id'
+            'candidate_id',
         ]);
 
         $this->setHidden([
             'report_id',
-            'hidden'
+            'hidden',
         ]);
 
         parent::__construct($values, $client);
-
     }
 
-
     /**
-     * Upload a document using a multipart form
+     * Upload a document using a multipart form.
      *
      * @param $type
      * @param $file
      * @param null $candidateId
+     *
      * @return $this
      */
-    public function upload($type, $file, $candidateId = NULL)
+    public function upload($type, $file, $candidateId = null)
     {
         if ($candidateId) {
             $this->setAttribute('candidate_id', $candidateId);
@@ -48,18 +45,17 @@ class Document extends AbstractResource
             ['candidate_id' => $this->getAttribute('candidate_id')]),
             ['multipart' => [
                 ['name' => 'type', 'contents' => $type],
-                ['name' => 'file', 'contents' => fopen($file, 'rb')]
-            ]
+                ['name' => 'file', 'contents' => fopen($file, 'rb')],
+            ],
             ]);
         $this->setAttributes([]);
         $this->setValues($response);
-        return $this;
 
+        return $this;
     }
 
     protected function uploadRequest($path, $options)
     {
         return $this->getClient()->request('post', $path, $options);
     }
-
 }
