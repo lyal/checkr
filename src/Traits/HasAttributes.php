@@ -26,7 +26,7 @@ trait HasAttributes
 
     /**
      * @param $key
-     * @return \Illuminate\Support\Collection|mixed|null
+     * @return mixed
      * @throws InvalidAttributeException
      */
     public function __get($key)
