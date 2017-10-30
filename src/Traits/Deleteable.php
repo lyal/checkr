@@ -24,7 +24,7 @@ trait Deleteable
         return $this->deletePath ?? $this->getResourceName() . '/' . $this->getAttribute('id');
     }
 
-    public function setDeletePath($path) : void
+    public function setDeletePath($path)
     {
         $this->deletePath = $path;
     }

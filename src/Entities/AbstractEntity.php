@@ -45,7 +45,7 @@ abstract class AbstractEntity
      * @return void
      */
 
-    public function setPreviousObject(AbstractEntity $object) : void
+    public function setPreviousObject(AbstractEntity $object)
     {
         $objectId = strtolower((new \ReflectionClass($object))->getShortName()) . '_id';
         if (null !== $object->getAttribute('id') && $this->checkField($objectId)) {
@@ -60,7 +60,7 @@ abstract class AbstractEntity
      * return void
      */
 
-    public function setValues($values) : void
+    public function setValues($values)
     {
         /**
          * If we get a string, we assume that it's an ID here
@@ -116,7 +116,7 @@ abstract class AbstractEntity
      * @return void;
      */
 
-    public function setClient(Client $client) : void
+    public function setClient(Client $client)
     {
         $this->client = $client;
     }
