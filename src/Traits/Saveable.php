@@ -9,9 +9,8 @@ trait Saveable
     protected $savePath;
 
     /**
-     * Abstract functions to imppose requirements for the exhibiting class
+     * Abstract functions to imppose requirements for the exhibiting class.
      */
-
     abstract public function getResourceName($object = null);
 
     abstract public function getAttributes($sanitized = true);
@@ -23,7 +22,6 @@ trait Saveable
     abstract public function getClient();
 
     abstract public function setValues($values);
-
 
     /**
      * Save an object.
@@ -37,7 +35,7 @@ trait Saveable
         if ($this->getAttribute('id') === null) {
             throw new IdMissing($this);
         }
-        $path = $this->getSavePath() ?? $this->getResourceName() . '/' . $this->getAttribute('id');
+        $path = $this->getSavePath() ?? $this->getResourceName().'/'.$this->getAttribute('id');
         $this->setValues($this->postRequest($path));
 
         return $this;

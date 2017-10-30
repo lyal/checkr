@@ -6,11 +6,9 @@ trait Deleteable
 {
     private $deletePath;
 
-
     /**
-     * Abstract functions to imppose requirements for the exhibiting class
+     * Abstract functions to imppose requirements for the exhibiting class.
      */
-
     abstract public function getResourceName($object = null);
 
     abstract public function getAttributes($sanitized = true);
@@ -44,7 +42,7 @@ trait Deleteable
 
     public function getDeletePath()
     {
-        return $this->deletePath ?? $this->getResourceName() . '/' . $this->getAttribute('id');
+        return $this->deletePath ?? $this->getResourceName().'/'.$this->getAttribute('id');
     }
 
     public function setDeletePath($path)

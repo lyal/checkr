@@ -4,11 +4,9 @@ namespace Lyal\Checkr\Traits;
 
 trait Postable
 {
-
     /**
-     * Abstract functions to imppose requirements for the exhibiting class
+     * Abstract functions to imppose requirements for the exhibiting class.
      */
-
     abstract public function getResourceName($object = null);
 
     abstract public function getAttributes($sanitized = true);
