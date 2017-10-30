@@ -6,6 +6,25 @@ use Lyal\Checkr\Exceptions\ResourceNotCreated;
 
 trait Creatable
 {
+
+
+    /**
+     * Abstract functions to imppose requirements for the exhibiting class
+     */
+
+    abstract public function getResourceName($object = null);
+
+    abstract public function getAttributes($sanitized = true);
+
+    abstract public function processPath($path = null, array $values = null);
+
+    abstract public function postRequest($path, array $options = []);
+
+    abstract public function getClient();
+
+    abstract public function setValues($values);
+
+
     protected $createPath;
 
     /**

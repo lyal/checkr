@@ -90,8 +90,8 @@ trait HasAttributes
 
         if ($this->checkFields) {
             return
-                in_array(str_singular($field).'_id', $this->getFields(), false)
-                || in_array(str_singular($field).'_ids', $this->getFields(), false)
+                in_array(str_singular($field) . '_id', $this->getFields(), false)
+                || in_array(str_singular($field) . '_ids', $this->getFields(), false)
                 || in_array($field, $this->getFields(), false)
                 || in_array($field, $this->getHidden(), false);
         }
@@ -104,7 +104,7 @@ trait HasAttributes
      *
      * @return array
      */
-    public function getAttributes($sanitized = true) : array
+    public function getAttributes($sanitized = true)
     {
         $container = $this->attributes;
         if ($sanitized) {
@@ -125,7 +125,7 @@ trait HasAttributes
      *
      * @return array
      */
-    protected function setAttributes(array $values) : array
+    protected function setAttributes(array $values)
     {
         return $this->attributes = $values;
     }

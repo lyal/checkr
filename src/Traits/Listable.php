@@ -4,6 +4,24 @@ namespace Lyal\Checkr\Traits;
 
 trait Listable
 {
+
+
+    /**
+     * Abstract functions to imppose requirements for the exhibiting class
+     */
+
+    abstract public function getResourceName($object = null);
+
+    abstract public function getAttributes($sanitized = true);
+
+    abstract public function processPath($path = null, array $values = null);
+
+    abstract public function postRequest($path, array $options = []);
+
+    abstract public function getClient();
+
+    abstract public function setValues($values);
+
     protected $listPath;
 
     private $perPage = 25;
@@ -28,7 +46,7 @@ trait Listable
      *
      * @return int
      */
-    public function getPerPage() : int
+    public function getPerPage()
     {
         return $this->perPage;
     }
@@ -62,22 +80,22 @@ trait Listable
     /**
      * @return int
      */
-    public function getCurrentPage() : int
+    public function getCurrentPage()
     {
         return $this->currentPage;
     }
 
-    public function nextPage() : int
+    public function nextPage()
     {
         return ++$this->currentPage;
     }
 
-    public function getCount() : int
+    public function getCount()
     {
         return $this->count;
     }
 
-    public function setCount($count) : int
+    public function setCount($count)
     {
         return $this->count = $count;
     }
@@ -90,12 +108,12 @@ trait Listable
         return $this;
     }
 
-    public function hasNextPage() : bool
+    public function hasNextPage()
     {
         return $this->hasNextPage !== false;
     }
 
-    public function setNextPage() : bool
+    public function setNextPage()
     {
         return $this->hasNextPage = (($this->getPerPage() * $this->getCurrentPage()) < $this->getCount());
     }
@@ -121,7 +139,7 @@ trait Listable
         $this->setCount($items->count);
         $this->setNextPage();
 
-        foreach ((array) $items->data as $item) {
+        foreach ((array)$items->data as $item) {
             $list[] = new $this($item, $this->getClient());
         }
 
