@@ -6,7 +6,6 @@ use Lyal\Checkr\Exceptions\InvalidAttributeException;
 
 trait HasAttributes
 {
-
     abstract public function getFields();
 
     /**
@@ -93,8 +92,8 @@ trait HasAttributes
 
         if ($this->checkFields) {
             return
-                in_array(str_singular($field) . '_id', $this->getFields(), false)
-                || in_array(str_singular($field) . '_ids', $this->getFields(), false)
+                in_array(str_singular($field).'_id', $this->getFields(), false)
+                || in_array(str_singular($field).'_ids', $this->getFields(), false)
                 || in_array($field, $this->getFields(), false)
                 || in_array($field, $this->getHidden(), false);
         }
