@@ -9,8 +9,9 @@ abstract class AbstractScreening extends AbstractEntity
 {
     /**
      * AbstractScreening constructor.
+     *
      * @param array|null|string $values
-     * @param Client $client
+     * @param Client            $client
      */
     public function __construct($values, Client $client)
     {

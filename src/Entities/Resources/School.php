@@ -11,13 +11,12 @@ class School extends AbstractResource
 {
     use Listable, Creatable, Deleteable;
 
-
     /**
      * School constructor.
+     *
      * @param null|string|array $values
-     * @param null|Client $client
+     * @param null|Client       $client
      */
-
     public function __construct($values = null, Client $client = null)
     {
         $this->setFields([
