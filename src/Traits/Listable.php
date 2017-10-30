@@ -28,6 +28,7 @@ trait Listable
 
     abstract protected function getRequest($path = null, $parameters = null);
 
+    abstract protected function __construct($values, $client);
 
     protected $listPath;
 

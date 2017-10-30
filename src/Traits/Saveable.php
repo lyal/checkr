@@ -24,6 +24,7 @@ trait Saveable
 
     abstract public function setValues($values);
 
+    abstract public function getAttribute($key);
 
     /**
      * Save an object.

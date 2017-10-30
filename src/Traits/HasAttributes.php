@@ -87,19 +87,16 @@ trait HasAttributes
      */
     public function checkField($field) : bool
     {
-        if ($field === 'include') {
+        if (!$this->checkFields) {
             return true;
         }
 
-        if ($this->checkFields) {
-            return
-                in_array(str_singular($field) . '_id', $this->getFields(), false)
-                || in_array(str_singular($field) . '_ids', $this->getFields(), false)
-                || in_array($field, $this->getFields(), false)
-                || in_array($field, $this->getHidden(), false);
-        }
-
-        return true;
+        return
+            $field === 'include'
+            || in_array(str_singular($field) . '_id', $this->getFields(), false)
+            || in_array(str_singular($field) . '_ids', $this->getFields(), false)
+            || in_array($field, $this->getFields(), false)
+            || in_array($field, $this->getHidden(), false);
     }
 
     /**
