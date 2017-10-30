@@ -1,4 +1,5 @@
 <?php
+
 namespace Tests\Unit;
 
 use Lyal\Checkr\Entities\Resources\School;
@@ -15,33 +16,33 @@ class SchoolTest extends UnitTestCase
     {
         $school = $this->getSchool();
         $school->id = 'e44aa283528e6fde7d542194';
-        $this->assertSame('e44aa283528e6fde7d542194',$school->id);
+        $this->assertSame('e44aa283528e6fde7d542194', $school->id);
     }
 
     public function testFields()
     {
         $values = [
-            'id' => '95a95172bb81143ed44e403c',
-            'object' => 'candidate_school',
-            'uri' => '/v1/candidates/762781cdd1c7fd620e956583/schools/95a95172bb81143ed44e403c',
+            'id'           => '95a95172bb81143ed44e403c',
+            'object'       => 'candidate_school',
+            'uri'          => '/v1/candidates/762781cdd1c7fd620e956583/schools/95a95172bb81143ed44e403c',
             'candidate_id' => '762781cdd1c7fd620e956583',
-            'name' => 'College University',
-            'address' => [
-                'street' => '1 Circle Avenue',
-                'city' => 'San Francisco',
+            'name'         => 'College University',
+            'address'      => [
+                'street'  => '1 Circle Avenue',
+                'city'    => 'San Francisco',
                 'zipcode' => '94105',
-                'state' => 'CA',
+                'state'   => 'CA',
                 'country' => 'US',
             ],
-            'degree' => 'MS',
+            'degree'       => 'MS',
             'year_awarded' => 2017,
-            'major' => 'Computer Science',
-            'phone' => '415-111-1111',
-            'minor' => 'Background Checks',
-            'start_date' => '2013-08-25',
-            'end_date' => '2017-05-10',
-            'current' => false,
-            'school_url' => 'www.collegeuniversity.com'
+            'major'        => 'Computer Science',
+            'phone'        => '415-111-1111',
+            'minor'        => 'Background Checks',
+            'start_date'   => '2013-08-25',
+            'end_date'     => '2017-05-10',
+            'current'      => false,
+            'school_url'   => 'www.collegeuniversity.com',
         ];
 
         $school = $this->getSchool($values);
@@ -53,11 +54,10 @@ class SchoolTest extends UnitTestCase
 
             $this->assertEquals($value, $school->{$key});
         }
-
     }
 
-    protected function getSchool($values = NULL)
+    protected function getSchool($values = null)
     {
-        return new School($values,$this->getClient());
+        return new School($values, $this->getClient());
     }
 }

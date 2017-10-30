@@ -1,4 +1,5 @@
 <?php
+
 namespace Tests\Unit;
 
 use Lyal\Checkr\Entities\Screenings\CountyCriminalSearch;
@@ -21,43 +22,42 @@ class CountyCriminalSearchTest extends UnitTestCase
     public function testFields()
     {
         $values = [
-            'id' => '539fdcf335644a0ef4000001',
-            'object' => 'county_criminal_search',
-            'uri' => '/v1/county_criminal_searches/539fdcf335644a0ef4000001',
-            'status' => 'consider',
-            'created_at' => '2014-01-18T12:34:00Z',
-            'completed_at' => '2014-01-18T12:35:30Z',
+            'id'              => '539fdcf335644a0ef4000001',
+            'object'          => 'county_criminal_search',
+            'uri'             => '/v1/county_criminal_searches/539fdcf335644a0ef4000001',
+            'status'          => 'consider',
+            'created_at'      => '2014-01-18T12:34:00Z',
+            'completed_at'    => '2014-01-18T12:35:30Z',
             'turnaround_time' => 100800,
-            'county' => 'SAN FRANCISCO',
-            'state' => 'CA',
-            'records' => [
-                'case_number' => '24323-DA',
-                'file_date' => '2010-02-18',
-                'arresting_agency' => 'San Francisco Police Department',
+            'county'          => 'SAN FRANCISCO',
+            'state'           => 'CA',
+            'records'         => [
+                'case_number'        => '24323-DA',
+                'file_date'          => '2010-02-18',
+                'arresting_agency'   => 'San Francisco Police Department',
                 'court_jurisdiction' => 'San Francisco',
-                'court_of_record' => NULL,
-                'dob' => '1970-01-22',
-                'full_name' => 'John Alfred Smith',
-                'charges' =>
-                    [
-                        'charge' => 'Sell Cocaine',
-                        'charge_type' => NULL,
-                        'charge_id' => NULL,
-                        'classification' => 'Felony',
-                        'deposition' => NULL,
-                        'defendant' => 'John Alfred Smith',
-                        'plaintiff' => NULL,
-                        'sentence' => 'Active Punishment Minimum: 10M',
-                        'disposition' => 'Guilty',
-                        'probation_status' => NULL,
-                        'offense_date' => '2011-04-22',
-                        'deposition_date' => '2014-05-27',
-                        'arrest_date' => '2011-04-22',
-                        'charge_date' => NULL,
-                        'sentence_date' => '2011-06-02',
+                'court_of_record'    => null,
+                'dob'                => '1970-01-22',
+                'full_name'          => 'John Alfred Smith',
+                'charges'            => [
+                        'charge'           => 'Sell Cocaine',
+                        'charge_type'      => null,
+                        'charge_id'        => null,
+                        'classification'   => 'Felony',
+                        'deposition'       => null,
+                        'defendant'        => 'John Alfred Smith',
+                        'plaintiff'        => null,
+                        'sentence'         => 'Active Punishment Minimum: 10M',
+                        'disposition'      => 'Guilty',
+                        'probation_status' => null,
+                        'offense_date'     => '2011-04-22',
+                        'deposition_date'  => '2014-05-27',
+                        'arrest_date'      => '2011-04-22',
+                        'charge_date'      => null,
+                        'sentence_date'    => '2011-06-02',
                         'disposition_date' => '2011-06-02',
-                    ]
-            ]
+                    ],
+            ],
         ];
 
         $countyCriminalSearch = $this->getCountyCriminalSearch($values);
@@ -69,15 +69,15 @@ class CountyCriminalSearchTest extends UnitTestCase
 
             $this->assertEquals($value, $countyCriminalSearch->{$key});
         }
-
     }
 
     /**
      * @param null $values
+     *
      * @return CountyCriminalSearch
      */
-    protected function getCountyCriminalSearch($values = NULL)
+    protected function getCountyCriminalSearch($values = null)
     {
-        return new CountyCriminalSearch($values,$this->getClient());
+        return new CountyCriminalSearch($values, $this->getClient());
     }
 }

@@ -1,4 +1,5 @@
 <?php
+
 namespace Tests\Unit;
 
 use Lyal\Checkr\Entities\Resources\AdverseAction;
@@ -24,8 +25,8 @@ class HelpersTest extends UnitTestCase
         $screeningName = checkrEntityClassName('ssn_trace');
         $resourceName = checkrEntityClassName('adverse_actions');
 
-        $this->assertSame('\\' . get_class($screening), $screeningName);
-        $this->assertSame('\\' . get_class($resource), $resourceName);
+        $this->assertSame('\\'.get_class($screening), $screeningName);
+        $this->assertSame('\\'.get_class($resource), $resourceName);
     }
 
     public function testResourceOrScreeningInvalidClassName()
@@ -43,7 +44,5 @@ class HelpersTest extends UnitTestCase
     private function getResource(array $values = [])
     {
         return new AdverseAction($values, $this->getClient());
-
     }
 }
-

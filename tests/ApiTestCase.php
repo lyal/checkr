@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Tests;
-
 
 use Lyal\Checkr\Client;
 

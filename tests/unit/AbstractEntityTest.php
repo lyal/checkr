@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Tests\Unit;
-
 
 use GuzzleHttp\Psr7\Response;
 use Lyal\Checkr\Entities\Resources\AdverseItem;
@@ -17,7 +15,6 @@ use Tests\UnitTestCase;
 
 class AbstractEntityTest extends UnitTestCase
 {
-
     private $jsonAdverseItem = '{
       "id": "57ed4ce3057e0b002adc6d93",
       "object": "adverse_item",
@@ -113,7 +110,6 @@ class AbstractEntityTest extends UnitTestCase
             new Response(200, [], $this->jsonReport),
         ];
         $report = $this->getReport([], $responses)->create();
-
     }
 
     public function testSaveObject()
@@ -133,14 +129,12 @@ class AbstractEntityTest extends UnitTestCase
         $report = $this->getReport()->save();
     }
 
-
     public function testSetBadAttribute()
     {
         $this->expectException(InvalidAttributeException::class);
         $adverseItem = $this->getAdverseItem();
         $adverseItem->testBadValue = 1;
     }
-
 
     public function testGetBadAttribute()
     {
@@ -156,9 +150,7 @@ class AbstractEntityTest extends UnitTestCase
         $this->assertTrue(isset($adverseItem->id));
 
         $this->assertFalse(isset($adverseItem->object));
-
     }
-
 
     public function testClientMethod()
     {
@@ -192,7 +184,6 @@ class AbstractEntityTest extends UnitTestCase
         $this->assertEquals('motor_vehicle_report,county_criminal_searches', $report->getEmbeddedResources());
     }
 
-
     public function testIgnoreFieldChecks()
     {
         $geo = $this->getGeo();
@@ -205,7 +196,6 @@ class AbstractEntityTest extends UnitTestCase
     {
         return new Geo($values, $this->getClient($response));
     }
-
 
     public function getAdverseItem($values = [], $responses = [])
     {
@@ -220,12 +210,10 @@ class AbstractEntityTest extends UnitTestCase
     public function getDocument($values = [], $responses = [])
     {
         return new Document($values, $this->getClient($responses));
-
     }
 
     public function getReport($values = [], $responses = [])
     {
         return new Report($values, $this->getClient($responses));
-
     }
 }

@@ -1,4 +1,5 @@
 <?php
+
 namespace Tests\Unit;
 
 use Lyal\Checkr\Entities\Resources\AdverseAction;
@@ -21,26 +22,25 @@ class AdverseActionTest extends UnitTestCase
     public function testFields()
     {
         $values = [
-            'id' => '57ed51e57619e8002a6683f2',
-            'object' => 'adverse_action',
-            'uri' => '/v1/adverse_actions/57ed51e57619e8002a6683f2',
-            'created_at' => '2016-09-29T17:39:49Z',
-            'status' => 'pending',
-            'report_id' => 'b861a56db1b1b89692dd6118',
+            'id'                       => '57ed51e57619e8002a6683f2',
+            'object'                   => 'adverse_action',
+            'uri'                      => '/v1/adverse_actions/57ed51e57619e8002a6683f2',
+            'created_at'               => '2016-09-29T17:39:49Z',
+            'status'                   => 'pending',
+            'report_id'                => 'b861a56db1b1b89692dd6118',
             'post_notice_scheduled_at' => '2016-10-07T12:34:00Z',
-            'post_notice_ready_at' => '2016-10-06T17:39:48Z',
-            'canceled_at' => NULL,
-            'adverse_items' =>
-                collect([
+            'post_notice_ready_at'     => '2016-10-06T17:39:48Z',
+            'canceled_at'              => null,
+            'adverse_items'            => collect([
                     [
-                        'id' => '57ed4ce3057e0b002adc6d90',
+                        'id'     => '57ed4ce3057e0b002adc6d90',
                         'object' => 'adverse_item',
-                        'text' => 'CHARGE: DELIVER COCAINE (STATUTE: 90-95(A)(1)) (DISPOSITION: DISMISSAL W/O LEAVE)',
+                        'text'   => 'CHARGE: DELIVER COCAINE (STATUTE: 90-95(A)(1)) (DISPOSITION: DISMISSAL W/O LEAVE)',
                     ],
-                    ['id' => '57ed4ce3057e0b002adc6d91',
+                    ['id'        => '57ed4ce3057e0b002adc6d91',
                         'object' => 'adverse_item',
-                        'text' => 'CHARGE: RESISTING PUBLIC OFFICER (STATUTE: 14-223) (DISPOSITION: DISMISSAL W/O LEAVE)',
-                    ]
+                        'text'   => 'CHARGE: RESISTING PUBLIC OFFICER (STATUTE: 14-223) (DISPOSITION: DISMISSAL W/O LEAVE)',
+                    ],
                 ]),
         ];
 
@@ -49,11 +49,10 @@ class AdverseActionTest extends UnitTestCase
         foreach ($values as $key => $value) {
             $this->assertEquals($value, $adverseAction->{$key});
         }
-
     }
 
-    protected function getAdverseAction($values = NULL)
+    protected function getAdverseAction($values = null)
     {
-        return new AdverseAction($values,$this->getClient());
+        return new AdverseAction($values, $this->getClient());
     }
 }

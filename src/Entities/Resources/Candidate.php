@@ -1,4 +1,5 @@
 <?php
+
 namespace Lyal\Checkr\Entities\Resources;
 
 use Lyal\Checkr\Traits\Creatable;
@@ -10,7 +11,7 @@ class Candidate extends AbstractResource
 {
     use Creatable, Saveable, Listable, Deleteable;
 
-    public function __construct($values = NULL, $client = NULL)
+    public function __construct($values = null, $client = null)
     {
         $this->setFields([
             'id',
@@ -37,10 +38,9 @@ class Candidate extends AbstractResource
             'geo_ids',
             'document_ids',
             'adjudication',
-            'candidate_id'
+            'candidate_id',
         ]);
 
         parent::__construct($values, $client);
-
     }
 }

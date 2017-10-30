@@ -1,6 +1,6 @@
 <?php
-namespace Tests\Unit;
 
+namespace Tests\Unit;
 
 use Lyal\Checkr\Entities\Resources\Geo;
 use Tests\UnitTestCase;
@@ -22,13 +22,13 @@ class GeoTest extends UnitTestCase
     public function testFields()
     {
         $values = [
-            'id' => 'e44aa283528e6fde7d542194',
-            'object' => 'geo',
-            'uri' => '/v1/geos/e44aa283528e6fde7d542194',
+            'id'         => 'e44aa283528e6fde7d542194',
+            'object'     => 'geo',
+            'uri'        => '/v1/geos/e44aa283528e6fde7d542194',
             'created_at' => '2015-01-18T12:34:00Z',
-            'name' => 'San Francisco',
-            'state' => 'CA',
-            'deleted_at' => NULL,
+            'name'       => 'San Francisco',
+            'state'      => 'CA',
+            'deleted_at' => null,
         ];
 
         $geo = $this->getGeo($values);
@@ -36,11 +36,10 @@ class GeoTest extends UnitTestCase
         foreach ($values as $key => $value) {
             $this->assertEquals($value, $geo->{$key});
         }
-
     }
 
-    protected function getGeo($values = NULL)
+    protected function getGeo($values = null)
     {
-        return new Geo($values,$this->getClient());
+        return new Geo($values, $this->getClient());
     }
 }

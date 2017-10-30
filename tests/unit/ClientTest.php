@@ -1,4 +1,5 @@
 <?php
+
 namespace Tests\Unit;
 
 use GuzzleHttp\Client;
@@ -33,7 +34,7 @@ class ClientTest extends UnitTestCase
     public function testValidApiCall()
     {
         $client = $this->getClient();
-        $previousObject = new AdverseAction(NULL, $client);
+        $previousObject = new AdverseAction(null, $client);
         $object = $client->api('AdverseAction', uniqid('', false), $previousObject);
         $this->assertInstanceOf(get_class($previousObject), $object);
     }
@@ -41,7 +42,7 @@ class ClientTest extends UnitTestCase
     public function testValidMagicCall()
     {
         $client = $this->getClient();
-        $adverseAction = new AdverseAction(NULL, $client);
+        $adverseAction = new AdverseAction(null, $client);
         $this->assertInstanceOf(get_class($adverseAction), $client->adverse_action());
     }
 
@@ -49,7 +50,7 @@ class ClientTest extends UnitTestCase
     {
         $this->expectException(UnknownResourceException::class);
         $client = $this->getClient();
-        $client->api('ThisIsNotAValidClass', NULL, $client);
+        $client->api('ThisIsNotAValidClass', null, $client);
     }
 
     public function testGetKey()
@@ -94,7 +95,7 @@ class ClientTest extends UnitTestCase
     {
         $responses = [new Response(200, [], '{"id": "57ed4ce3057e0b002adc6d93","object": "adverse_item","text": "License status: Suspended"}')];
         $client = $this->getClient($responses);
-        $response = $client->request('GET', $client->getApiEndPoint() . 'fake_request');
+        $response = $client->request('GET', $client->getApiEndPoint().'fake_request');
         $this->assertEquals(json_decode('{"id": "57ed4ce3057e0b002adc6d93","object": "adverse_item","text": "License status: Suspended"}'), $response);
     }
 
@@ -103,7 +104,7 @@ class ClientTest extends UnitTestCase
         $this->expectException(BadRequest::class);
         $responses = [new Response(400, [])];
         $client = $this->getClient($responses);
-        $client->request('GET', $client->getApiEndPoint() . 'fake_request');
+        $client->request('GET', $client->getApiEndPoint().'fake_request');
         $this->getClient($responses);
     }
 
@@ -112,7 +113,7 @@ class ClientTest extends UnitTestCase
         $this->expectException(Unauthorized::class);
         $responses = [new Response(401, [])];
         $client = $this->getClient($responses);
-        $client->request('GET', $client->getApiEndPoint() . 'fake_request');
+        $client->request('GET', $client->getApiEndPoint().'fake_request');
         $this->getClient($responses);
     }
 
@@ -121,7 +122,7 @@ class ClientTest extends UnitTestCase
         $this->expectException(Forbidden::class);
         $responses = [new Response(403, [])];
         $client = $this->getClient($responses);
-        $client->request('GET', $client->getApiEndPoint() . 'fake_request');
+        $client->request('GET', $client->getApiEndPoint().'fake_request');
         $this->getClient($responses);
     }
 
@@ -130,9 +131,8 @@ class ClientTest extends UnitTestCase
         $this->expectException(NotFound::class);
         $responses = [new Response(404, [])];
         $client = $this->getClient($responses);
-        $client->request('GET', $client->getApiEndPoint() . 'fake_request');
+        $client->request('GET', $client->getApiEndPoint().'fake_request');
         $this->getClient($responses);
-
     }
 
     public function testConflictException()
@@ -140,7 +140,7 @@ class ClientTest extends UnitTestCase
         $this->expectException(Conflict::class);
         $responses = [new Response(409, [])];
         $client = $this->getClient($responses);
-        $client->request('GET', $client->getApiEndPoint() . 'fake_request');
+        $client->request('GET', $client->getApiEndPoint().'fake_request');
         $this->getClient($responses);
     }
 
@@ -149,7 +149,7 @@ class ClientTest extends UnitTestCase
         $this->expectException(InternalServerError::class);
         $responses = [new Response(500, [])];
         $client = $this->getClient($responses);
-        $client->request('GET', $client->getApiEndPoint() . 'fake_request');
+        $client->request('GET', $client->getApiEndPoint().'fake_request');
         $this->getClient($responses);
     }
 
@@ -158,8 +158,7 @@ class ClientTest extends UnitTestCase
         $this->expectException(UnhandledRequestError::class);
         $responses = [new Response(417, [])];
         $client = $this->getClient($responses);
-        $client->request('GET', $client->getApiEndPoint() . 'fake_request');
+        $client->request('GET', $client->getApiEndPoint().'fake_request');
         $this->getClient($responses);
     }
-
 }

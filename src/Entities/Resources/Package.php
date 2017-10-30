@@ -1,10 +1,10 @@
 <?php
-namespace Lyal\Checkr\Entities\Resources;
 
+namespace Lyal\Checkr\Entities\Resources;
 
 class Package extends AbstractResource
 {
-    public function __construct($values = NULL, $client = NULL)
+    public function __construct($values = null, $client = null)
     {
         $this->setFields(
             [
@@ -15,7 +15,7 @@ class Package extends AbstractResource
                 'name',
                 'slug',
                 'price',
-                'screenings'
+                'screenings',
             ]
         );
         parent::__construct($values, $client);
