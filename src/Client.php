@@ -27,8 +27,8 @@ class Client
     /**
      * Client constructor.
      *
-     * @param string|null       $key
-     * @param array             $options
+     * @param string|null $key
+     * @param array $options
      * @param GuzzleClient|null $guzzle
      */
     public function __construct($key = null, array $options = [], GuzzleClient $guzzle = null)
@@ -59,8 +59,8 @@ class Client
     /**
      * Fetch an API resource to handle the client request.
      *
-     * @param string                               $name
-     * @param array                                $args
+     * @param string $name
+     * @param array $args
      * @param \Lyal\Checkr\Entities\AbstractEntity $previousObject
      *
      * @throws UnknownResourceException
@@ -128,7 +128,7 @@ class Client
     /**
      * Get the checkr api key.
      *
-     * @return string
+     * @return string|boolean
      */
     public function getKey()
     {
@@ -192,7 +192,7 @@ class Client
      * @param $method
      * @param $path
      * @param array $options
-     * @param bool  $returnResponse
+     * @param bool $returnResponse
      *
      * @throws \Lyal\Checkr\Exceptions\UnhandledRequestError
      * @throws \Lyal\Checkr\Exceptions\Client\Unauthorized
@@ -208,12 +208,12 @@ class Client
     {
         $body = '';
         $options = array_merge($this->getOptions(), $options);
-        $options['auth'] = [$this->getKey().':', ''];
+        $options['auth'] = [$this->getKey() . ':', ''];
 
         try {
-            $response = $this->getHttpClient()->request($method, $this->getApiEndPoint().$path, $options);
+            $response = $this->getHttpClient()->request($method, $this->getApiEndPoint() . $path, $options);
             $this->setLastResponse($response);
-            $body = json_decode((string) $response->getBody());
+            $body = json_decode((string)$response->getBody());
         } catch (BadResponseException $exception) {
             $this->handleError($exception);
         }
@@ -239,7 +239,7 @@ class Client
      * @throws \Lyal\Checkr\Exceptions\Client\Forbidden
      * @throws \Lyal\Checkr\Exceptions\Client\NotFound
      * @throws \Lyal\Checkr\Exceptions\Client\Conflict
-     * @throws \Lyal\Checkr\Exceptions\Client\InternalServerError
+     * @throws \Lyal\Checkr\Exceptions\Server\InternalServerError
      * @throws \Lyal\Checkr\Exceptions\UnhandledRequestError
      */
     private function handleError(BadResponseException $exception)

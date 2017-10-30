@@ -2,9 +2,18 @@
 
 namespace Lyal\Checkr\Entities\Resources;
 
+use Lyal\Checkr\Client;
+
 class Document extends AbstractResource
 {
-    public function __construct($values = null, $client = null)
+    /**
+     * Document constructor.
+     * @param null|string|array $values
+     * @param null|Client $client
+     */
+
+
+    public function __construct($values = null, Client $client = null)
     {
         $this->setFields([
             'id',

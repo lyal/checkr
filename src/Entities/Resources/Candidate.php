@@ -2,6 +2,7 @@
 
 namespace Lyal\Checkr\Entities\Resources;
 
+use Lyal\Checkr\Client;
 use Lyal\Checkr\Traits\Creatable;
 use Lyal\Checkr\Traits\Deleteable;
 use Lyal\Checkr\Traits\Listable;
@@ -11,7 +12,12 @@ class Candidate extends AbstractResource
 {
     use Creatable, Saveable, Listable, Deleteable;
 
-    public function __construct($values = null, $client = null)
+    /**
+     * Candidate constructor.
+     * @param null|string|array $values
+     * @param null|Client $client
+     */
+    public function __construct($values = null, Client $client = null)
     {
         $this->setFields([
             'id',

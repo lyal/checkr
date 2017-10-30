@@ -2,9 +2,18 @@
 
 namespace Lyal\Checkr\Entities\Resources;
 
+use Lyal\Checkr\Client;
+
 class Subscription extends AbstractResource
 {
-    public function __construct($values = null, $client = null)
+
+    /**
+     * Subscription constructor.
+     * @param null|string|array $values
+     * @param null|Client $client
+     */
+
+    public function __construct($values = null, Client $client = null)
     {
         $this->setFields([
             'id',

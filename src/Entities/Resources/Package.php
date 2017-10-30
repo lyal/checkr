@@ -2,9 +2,17 @@
 
 namespace Lyal\Checkr\Entities\Resources;
 
+use Lyal\Checkr\Client;
+
 class Package extends AbstractResource
 {
-    public function __construct($values = null, $client = null)
+    /**
+     * Package constructor.
+     * @param null|string|array $values
+     * @param null|Client $client
+     */
+
+    public function __construct($values = null, Client $client = null)
     {
         $this->setFields(
             [

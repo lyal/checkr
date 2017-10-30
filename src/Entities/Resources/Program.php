@@ -2,13 +2,21 @@
 
 namespace Lyal\Checkr\Entities\Resources;
 
+use Lyal\Checkr\Client;
 use Lyal\Checkr\Traits\Listable;
 
 class Program extends AbstractResource
 {
     use Listable;
 
-    public function __construct($values = null, $client = null)
+    /**
+     * Program constructor.
+     * @param null|string|array $values
+     * @param null|Client $client
+     */
+
+
+    public function __construct($values = null, Client $client = null)
     {
         $this->setFields([
             'id',

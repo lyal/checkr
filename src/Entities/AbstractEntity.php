@@ -27,7 +27,7 @@ abstract class AbstractEntity
     /**
      * AbstractEntity constructor.
      *
-     * @param string|null $values
+     * @param string|array|null $values
      * @param Client|null $client
      */
     public function __construct($values = null, $client = null)
@@ -46,7 +46,7 @@ abstract class AbstractEntity
      */
     public function setPreviousObject(AbstractEntity $object)
     {
-        $objectId = strtolower((new \ReflectionClass($object))->getShortName()).'_id';
+        $objectId = strtolower((new \ReflectionClass($object))->getShortName()) . '_id';
         if (null !== $object->getAttribute('id') && $this->checkField($objectId)) {
             $this->setAttribute($objectId, $object->getAttribute('id'));
         }
@@ -69,7 +69,7 @@ abstract class AbstractEntity
             return;
         }
 
-        foreach ((array) $values as $key => $value) {
+        foreach ((array)$values as $key => $value) {
             if (isset($value->object)) {
                 $className = checkrEntityClassName($value->object);
                 $value = new $className($value, $this->getClient());
@@ -134,7 +134,7 @@ abstract class AbstractEntity
 
     /**
      * @param string|null $path
-     * @param array|null  $values
+     * @param array|null $values
      *
      * @return string
      */

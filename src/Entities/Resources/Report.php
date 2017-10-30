@@ -2,6 +2,7 @@
 
 namespace Lyal\Checkr\Entities\Resources;
 
+use Lyal\Checkr\Client;
 use Lyal\Checkr\Traits\Creatable;
 use Lyal\Checkr\Traits\Saveable;
 
@@ -9,7 +10,13 @@ class Report extends AbstractResource
 {
     use Creatable, Saveable;
 
-    public function __construct($values = null, $client = null)
+    /**
+     * Report constructor.
+     * @param null|string|array $values
+     * @param null|Client $client
+     */
+
+    public function __construct($values = null, Client $client = null)
     {
         $this->setFields([
             'id',

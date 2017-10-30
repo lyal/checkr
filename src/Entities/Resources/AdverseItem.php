@@ -2,6 +2,7 @@
 
 namespace Lyal\Checkr\Entities\Resources;
 
+use Lyal\Checkr\Client;
 use Lyal\Checkr\Traits\Listable;
 
 class AdverseItem extends AbstractResource
@@ -11,10 +12,10 @@ class AdverseItem extends AbstractResource
     /**
      * AdverseItem constructor.
      *
-     * @param null $values
-     * @param null $client
+     * @param null|string|array $values
+     * @param null|Client $client
      */
-    public function __construct($values = null, $client = null)
+    public function __construct($values = null, Client $client = null)
     {
         $this->setFields([
             'id',
