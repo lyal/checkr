@@ -36,5 +36,16 @@
       "Tests\\": "tests/"
     }
   },
-  "minimum-stability": "stable"
+  "minimum-stability": "stable",
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Lyal\\Checkr\\Laravel\\CheckrServiceProvider"
+      ],
+      "aliases": {
+        "Debugbar": "Lyal\\Checkr\Laravel\\Facades\\"
+      }
+    }
+  }
 }
+
