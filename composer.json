@@ -43,7 +43,7 @@
         "Lyal\\Checkr\\Laravel\\CheckrServiceProvider"
       ],
       "aliases": {
-        "Debugbar": "Lyal\\Checkr\Laravel\\Facades\\"
+        "Checkr": "Lyal\\Checkr\Laravel\\Facades\\CheckrFacade"
       }
     }
   }
