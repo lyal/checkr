@@ -1,4 +1,5 @@
 <?php
+
 namespace Lyal\Checkr\Laravel\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -15,6 +16,7 @@ class CheckrController extends Controller
         $input = $request->all();
         $eventHandler = new EventHelper($input);
         $eventHandler->dispatch();
+
         return response('Webhook received.', 200);
     }
 }

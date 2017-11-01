@@ -1,13 +1,9 @@
 <?php
-namespace Lyal\Checkr\Laravel\Events;
 
-use Illuminate\Broadcasting\InteractsWithSockets;
-use Illuminate\Foundation\Events\Dispatchable;
+namespace Lyal\Checkr\Laravel\Events;
 
 class AdverseActionNoticeNotDelivered
 {
-
-
     public $adverseActionNoticeNotDelivered;
 
     /**
@@ -15,7 +11,6 @@ class AdverseActionNoticeNotDelivered
      *
      * @param \StdClass $adverseActionNoticeNotDelivered
      */
-     
     public function __construct($adverseActionNoticeNotDelivered)
     {
         $this->adverseActionNoticeNotDelivered = $adverseActionNoticeNotDelivered;

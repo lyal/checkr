@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Lyal\Checkr;
-
 
 use Lyal\Checkr\Exceptions\Client\BadRequest;
 use Lyal\Checkr\Exceptions\Client\Conflict;
@@ -27,11 +25,10 @@ class RequestErrorHandler
     {
         $errorCode = $this->exception->getResponse()->getStatusCode();
 
-        if (method_exists($this, 'handle' . $errorCode)) {
-            $this->{'handle' . $errorCode}();
+        if (method_exists($this, 'handle'.$errorCode)) {
+            $this->{'handle'.$errorCode}();
         }
         $this->handleUnknown();
-
     }
 
     protected function handle400()
@@ -64,11 +61,8 @@ class RequestErrorHandler
         throw new InternalServerError($this->body);
     }
 
-
     private function handleUnknown()
     {
         throw new UnhandledRequestError($this->exception->getResponse()->getStatusCode(), $this->body);
     }
-
-
 }

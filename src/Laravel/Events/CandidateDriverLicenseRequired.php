@@ -1,13 +1,9 @@
 <?php
-namespace Lyal\Checkr\Laravel\Events;
 
-use Illuminate\Broadcasting\InteractsWithSockets;
-use Illuminate\Foundation\Events\Dispatchable;
+namespace Lyal\Checkr\Laravel\Events;
 
 class CandidateDriverLicenseRequired
 {
-
-
     public $candidateDriverLicenseRequired;
 
     /**
@@ -15,7 +11,6 @@ class CandidateDriverLicenseRequired
      *
      * @param \StdClass $candidateDriverLicenseRequired
      */
-     
     public function __construct($candidateDriverLicenseRequired)
     {
         $this->candidateDriverLicenseRequired = $candidateDriverLicenseRequired;

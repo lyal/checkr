@@ -3,7 +3,7 @@
  * Created by PhpStorm.
  * User: lyal
  * Date: 10/10/17
- * Time: 7:14 PM
+ * Time: 7:14 PM.
  */
 
 namespace Lyal\Checkr\Laravel\Facades;

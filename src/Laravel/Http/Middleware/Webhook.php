@@ -1,6 +1,6 @@
 <?php
-namespace Lyal\Checkr\Laravel\Http\Middleware;
 
+namespace Lyal\Checkr\Laravel\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Log;
@@ -18,6 +18,7 @@ class Webhook
             Log::alert('Checkr signature does not match request.');
             abort(404);
         }
+
         return $next($request);
     }
 }

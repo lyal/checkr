@@ -7,9 +7,8 @@ trait Getable
     private $getPath;
 
     /**
-     * Abstract functions to imppose requirements for the exhibiting class
+     * Abstract functions to imppose requirements for the exhibiting class.
      */
-
     abstract public function getAttribute($key);
 
     abstract public function getResourceName($object = null);
@@ -42,7 +41,7 @@ trait Getable
         }
 
         if ($parameters) {
-            $path .= '?' . http_build_query($parameters);
+            $path .= '?'.http_build_query($parameters);
         }
 
         return $this->getClient()->request('get', $path);
@@ -58,7 +57,7 @@ trait Getable
     public function load(array $parameters = null)
     {
         $parameters = $parameters ?? ['id' => $this->getAttribute('id')];
-        $path = $this->processPath($this->getLoadPath() ?? $this->getResourceName() . '/' . $this->getAttribute('id'));
+        $path = $this->processPath($this->getLoadPath() ?? $this->getResourceName().'/'.$this->getAttribute('id'));
         $this->setValues($this->getRequest($path, $parameters));
 
         return $this;
