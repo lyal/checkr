@@ -1,13 +1,9 @@
 <?php
-namespace Lyal\Checkr\Laravel\Events;
 
-use Illuminate\Broadcasting\InteractsWithSockets;
-use Illuminate\Foundation\Events\Dispatchable;
+namespace Lyal\Checkr\Laravel\Events;
 
 class CandidateIdRequired
 {
-
-
     public $candidateIdRequired;
 
     /**
@@ -15,7 +11,6 @@ class CandidateIdRequired
      *
      * @param \StdClass $candidateIdRequired
      */
-     
     public function __construct($candidateIdRequired)
     {
         $this->candidateIdRequired = $candidateIdRequired;

@@ -10,7 +10,7 @@ class Document extends AbstractResource
      * Document constructor.
      *
      * @param null|string|array $values
-     * @param null|Client $client
+     * @param null|Client       $client
      */
     public function __construct($values = null, Client $client = null)
     {
@@ -37,8 +37,8 @@ class Document extends AbstractResource
     /**
      * Upload a document using a multipart form.
      *
-     * @param string $type
-     * @param string $file
+     * @param string      $type
+     * @param string      $file
      * @param string|null $candidateId
      *
      * @return $this

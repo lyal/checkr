@@ -4,12 +4,9 @@ namespace Lyal\Checkr\Traits;
 
 trait Listable
 {
-
-
     /**
-     * Abstract functions to imppose requirements for the exhibiting class
+     * Abstract functions to imppose requirements for the exhibiting class.
      */
-
     abstract public function getResourceName($object = null);
 
     abstract public function getAttributes($sanitized = true);
@@ -147,7 +144,7 @@ trait Listable
         $this->setCount($items->count);
         $this->setNextPage();
 
-        foreach ((array)$items->data as $item) {
+        foreach ((array) $items->data as $item) {
             $list[] = new $this($item, $this->getClient());
         }
 

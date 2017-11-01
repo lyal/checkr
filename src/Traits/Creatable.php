@@ -6,12 +6,9 @@ use Lyal\Checkr\Exceptions\ResourceNotCreated;
 
 trait Creatable
 {
-
-
     /**
-     * Abstract functions to imppose requirements for the exhibiting class
+     * Abstract functions to imppose requirements for the exhibiting class.
      */
-
     abstract public function getResourceName($object = null);
 
     abstract public function getAttributes($sanitized = true);

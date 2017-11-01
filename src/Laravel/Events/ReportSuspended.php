@@ -1,13 +1,9 @@
 <?php
-namespace Lyal\Checkr\Laravel\Events;
 
-use Illuminate\Broadcasting\InteractsWithSockets;
-use Illuminate\Foundation\Events\Dispatchable;
+namespace Lyal\Checkr\Laravel\Events;
 
 class ReportSuspended
 {
-
-
     public $reportSuspended;
 
     /**
@@ -15,7 +11,6 @@ class ReportSuspended
      *
      * @param \StdClass $reportSuspended
      */
-     
     public function __construct($reportSuspended)
     {
         $this->reportSuspended = $reportSuspended;

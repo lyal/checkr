@@ -1,13 +1,9 @@
 <?php
-namespace Lyal\Checkr\Laravel\Events;
 
-use Illuminate\Broadcasting\InteractsWithSockets;
-use Illuminate\Foundation\Events\Dispatchable;
+namespace Lyal\Checkr\Laravel\Events;
 
 class InvitationExpired
 {
-
-
     public $invitationExpired;
 
     /**
@@ -15,7 +11,6 @@ class InvitationExpired
      *
      * @param \StdClass $invitationExpired
      */
-     
     public function __construct($invitationExpired)
     {
         $this->invitationExpired = $invitationExpired;
