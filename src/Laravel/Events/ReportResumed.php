@@ -1,13 +1,9 @@
 <?php
-namespace Lyal\Checkr\Laravel\Events;
 
-use Illuminate\Broadcasting\InteractsWithSockets;
-use Illuminate\Foundation\Events\Dispatchable;
+namespace Lyal\Checkr\Laravel\Events;
 
 class ReportResumed
 {
-
-
     public $reportResumed;
 
     /**
@@ -15,7 +11,6 @@ class ReportResumed
      *
      * @param \StdClass $reportResumed
      */
-     
     public function __construct($reportResumed)
     {
         $this->reportResumed = $reportResumed;

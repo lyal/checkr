@@ -1,13 +1,9 @@
 <?php
-namespace Lyal\Checkr\Laravel\Events;
 
-use Illuminate\Broadcasting\InteractsWithSockets;
-use Illuminate\Foundation\Events\Dispatchable;
+namespace Lyal\Checkr\Laravel\Events;
 
 class InvitationCompleted
 {
-
-
     public $invitationCompleted;
 
     /**
@@ -15,7 +11,6 @@ class InvitationCompleted
      *
      * @param \StdClass $invitationCompleted
      */
-     
     public function __construct($invitationCompleted)
     {
         $this->invitationCompleted = $invitationCompleted;

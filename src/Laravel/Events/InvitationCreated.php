@@ -1,13 +1,9 @@
 <?php
-namespace Lyal\Checkr\Laravel\Events;
 
-use Illuminate\Broadcasting\InteractsWithSockets;
-use Illuminate\Foundation\Events\Dispatchable;
+namespace Lyal\Checkr\Laravel\Events;
 
 class InvitationCreated
 {
-
-
     public $invitationCreated;
 
     /**
@@ -15,7 +11,6 @@ class InvitationCreated
      *
      * @param \StdClass $invitationCreated
      */
-     
     public function __construct($invitationCreated)
     {
         $this->invitationCreated = $invitationCreated;

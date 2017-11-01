@@ -1,13 +1,9 @@
 <?php
-namespace Lyal\Checkr\Laravel\Events;
 
-use Illuminate\Broadcasting\InteractsWithSockets;
-use Illuminate\Foundation\Events\Dispatchable;
+namespace Lyal\Checkr\Laravel\Events;
 
 class ReportPreAdverseAction
 {
-
-
     public $reportPreAdverseAction;
 
     /**
@@ -15,7 +11,6 @@ class ReportPreAdverseAction
      *
      * @param \StdClass $reportPreAdverseAction
      */
-     
     public function __construct($reportPreAdverseAction)
     {
         $this->reportPreAdverseAction = $reportPreAdverseAction;
