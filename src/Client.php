@@ -27,7 +27,7 @@ class Client
     public function __construct($key = null, array $options = [], GuzzleClient $guzzle = null)
     {
         $this->setHttpClient($guzzle ?? new GuzzleClient());
-        $this->setKey($key ?? env('checkr_api_key', null));
+        $this->setKey($key ?? getenv('checkr_production_key'));
         $this->setOptions($options);
     }
 

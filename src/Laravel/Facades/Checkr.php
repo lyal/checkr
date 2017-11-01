@@ -6,9 +6,9 @@
  * Time: 7:14 PM
  */
 
-namespace PullRequest\Checkr\Facades;
+namespace Lyal\Checkr\Laravel\Facades;
 
-class CheckrFacade extends \Illuminate\Support\Facades\Facade
+class Checkr extends \Illuminate\Support\Facades\Facade
 {
     protected static function getFacadeAccessor()
     {

@@ -14,11 +14,10 @@ class Webhook
             abort(404);
         }
 
-        if (hash_hmac('SHA256', $request->getContent(), env('checkr_api_key')) !== $request->header('X-Checkr-Signature')) {
+        if (hash_hmac('SHA256', $request->getContent(), env('CHECKR_API_KEY')) !== $request->header('X-Checkr-Signature')) {
             Log::alert('Checkr signature does not match request.');
             abort(404);
         }
-
         return $next($request);
     }
 }
