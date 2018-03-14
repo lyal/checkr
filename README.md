@@ -2,7 +2,6 @@
 
 [![Build Status](https://travis-ci.org/lyal/checkr.svg?branch=master)](https://travis-ci.org/lyal/checkr)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/lyal/checkr/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/lyal/checkr/?branch=master)
-[![StyleCI](https://styleci.io/repos/108857357/shield?branch=master)](https://styleci.io/repos/108857357)
 
 A simple PHP package for interacting with the www.checkr.com's API (documentation at https://docs.checkr.com/), 
 focusing on ease of use.  
