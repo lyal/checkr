@@ -14,7 +14,7 @@ class Report extends AbstractResource
      * Report constructor.
      *
      * @param null|string|array $values
-     * @param null|Client       $client
+     * @param null|Client $client
      */
     public function __construct($values = null, Client $client = null)
     {
@@ -51,6 +51,7 @@ class Report extends AbstractResource
             'document_ids',
             'geo_ids',
             'tags',
+            'arrest_search_id'
         ]);
         parent::__construct($values, $client);
     }

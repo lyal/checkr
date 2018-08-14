@@ -22,9 +22,9 @@ class CheckrServiceProvider extends ServiceProvider
         $this->app['router']->aliasMiddleware('checkr_webhook', Webhook::class);
 
         $this->app->bind('lyal.checkr', function () {
-            $key = App::environment('production') ? env('checkr_production_key') : env('CHECKR_TESTING_KEY', null) ?? config('checkr_testing_key');
+            $key = App::environment('production') ? config('checkr.production_key') : config('checkr.testing_key');
 
-            return new Client($key, env('checkr_options', []));
+            return new Client($key, config('checkr.options', []));
         });
     }
 

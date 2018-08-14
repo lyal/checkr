@@ -36,7 +36,6 @@ trait HasAttributes
         if ($this->checkField($key) && array_key_exists($key, $this->attributes)) {
             return $this->attributes[$key] ?? null;
         }
-
         throw new InvalidAttributeException(get_class($this), $key);
     }
 
@@ -92,8 +91,8 @@ trait HasAttributes
 
         return
             $field === 'include'
-            || in_array(str_singular($field).'_id', $this->getFields(), false)
-            || in_array(str_singular($field).'_ids', $this->getFields(), false)
+            || in_array(str_singular($field) . '_id', $this->getFields(), false)
+            || in_array(str_singular($field) . '_ids', $this->getFields(), false)
             || in_array($field, $this->getFields(), false)
             || in_array($field, $this->getHidden(), false);
     }

@@ -2,9 +2,11 @@
 
 namespace Lyal\Checkr;
 
+use Exception;
 use Guzzle\Http\Message\Response;
 use GuzzleHttp\Client as GuzzleClient;
 use GuzzleHttp\Exception\BadResponseException;
+use Lyal\Checkr\Exceptions\Client\BadRequest;
 use Lyal\Checkr\Exceptions\UnknownResourceException;
 
 class Client
@@ -20,8 +22,8 @@ class Client
     /**
      * Client constructor.
      *
-     * @param string|null       $key
-     * @param array             $options
+     * @param string|null $key
+     * @param array $options
      * @param GuzzleClient|null $guzzle
      */
     public function __construct($key = null, array $options = [], GuzzleClient $guzzle = null)
@@ -52,8 +54,8 @@ class Client
     /**
      * Fetch an API resource to handle the client request.
      *
-     * @param string                               $name
-     * @param array                                $args
+     * @param string $name
+     * @param array $args
      * @param \Lyal\Checkr\Entities\AbstractEntity $previousObject
      *
      * @throws UnknownResourceException
@@ -125,7 +127,7 @@ class Client
      */
     public function getKey()
     {
-        return $this->key ?: env('checkr_api_key', null);
+        return $this->key ?: getenv('checkr_api_key');
     }
 
     /**
@@ -185,7 +187,7 @@ class Client
      * @param $method
      * @param $path
      * @param array $options
-     * @param bool  $returnResponse
+     * @param bool $returnResponse
      *
      * @throws \Lyal\Checkr\Exceptions\UnhandledRequestError
      * @throws \Lyal\Checkr\Exceptions\Client\Unauthorized
@@ -201,12 +203,12 @@ class Client
     {
         $body = '';
         $options = array_merge($this->getOptions(), $options);
-        $options['auth'] = [$this->getKey().':', ''];
+        $options['auth'] = [$this->getKey() . ':', ''];
 
         try {
-            $response = $this->getHttpClient()->request($method, $this->getApiEndPoint().$path, $options);
+            $response = $this->getHttpClient()->request($method, $this->getApiEndPoint() . $path, $options);
             $this->setLastResponse($response);
-            $body = json_decode((string) $response->getBody());
+            $body = json_decode((string)$response->getBody());
         } catch (BadResponseException $exception) {
             $this->handleError($exception);
         }
@@ -235,7 +237,7 @@ class Client
      * @throws \Lyal\Checkr\Exceptions\Server\InternalServerError
      * @throws \Lyal\Checkr\Exceptions\UnhandledRequestError
      */
-    private function handleError(BadResponseException $exception)
+    private function handleError(Exception $exception)
     {
         $handler = new RequestErrorHandler($exception);
         $handler->handleError();

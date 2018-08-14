@@ -4,6 +4,7 @@ namespace Lyal\Checkr\Laravel\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Log;
+use Lyal\Checkr\Laravel\Facades\Checkr;
 
 class Webhook
 {
@@ -14,7 +15,7 @@ class Webhook
             abort(404);
         }
 
-        if (hash_hmac('SHA256', $request->getContent(), env('CHECKR_API_KEY')) !== $request->header('X-Checkr-Signature')) {
+        if (hash_hmac('SHA256', $request->getContent(), Checkr::getKey()) !== $request->header('X-Checkr-Signature')) {
             Log::alert('Checkr signature does not match request.');
             abort(404);
         }
