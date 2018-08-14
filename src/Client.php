@@ -6,7 +6,6 @@ use Exception;
 use Guzzle\Http\Message\Response;
 use GuzzleHttp\Client as GuzzleClient;
 use GuzzleHttp\Exception\BadResponseException;
-use Lyal\Checkr\Exceptions\Client\BadRequest;
 use Lyal\Checkr\Exceptions\UnknownResourceException;
 
 class Client
@@ -68,7 +67,7 @@ class Client
         if (!$className = checkrEntityClassName($name)) {
             throw new UnknownResourceException($name);
         }
-        $args = count($args) ? $args[0] : $args;
+        $args = (is_array($args) && count($args)) ? $args[0] : $args;
         $entity = new $className($args, $this);
         if ($previousObject) {
             $entity->setPreviousObject($previousObject);
