@@ -28,7 +28,7 @@ $client = new Client('insert_checkr_api_key_here');
  * Create a new user and send them an invitation
  */
 
-$client->candidate(['email' => 'john.doe@johndoe.com'])->create()->invitiation(['package' => 'tasker_pro'])->create();
+$client->candidate(['email' => 'john.doe@johndoe.com'])->create()->invitation(['package' => 'tasker_pro'])->create();
 
 ```
 # Environment Variables
