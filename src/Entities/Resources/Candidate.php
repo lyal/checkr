@@ -16,7 +16,7 @@ class Candidate extends AbstractResource
      * Candidate constructor.
      *
      * @param null|string|array $values
-     * @param null|Client       $client
+     * @param null|Client $client
      */
     public function __construct($values = null, Client $client = null)
     {
@@ -25,6 +25,7 @@ class Candidate extends AbstractResource
             'object',
             'uri',
             'created_at',
+            'updated_at',
             'first_name',
             'middle_name',
             'no_middle_name',

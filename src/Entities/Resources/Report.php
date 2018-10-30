@@ -23,6 +23,7 @@ class Report extends AbstractResource
             'object',
             'uri',
             'status',
+            'source',
             'created_at',
             'completed_at',
             'upgraded_at',
