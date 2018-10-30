@@ -44,7 +44,7 @@ abstract class AbstractEntity
      *
      * @return void
      */
-    public function setPreviousObject(AbstractEntity $object)
+    public function setPreviousObject(self $object)
     {
         $objectId = strtolower((new \ReflectionClass($object))->getShortName()).'_id';
         if (null !== $object->getAttribute('id') && $this->checkField($objectId)) {
