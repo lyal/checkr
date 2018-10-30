@@ -25,6 +25,7 @@ class Candidate extends AbstractResource
             'object',
             'uri',
             'created_at',
+            'updated_at',
             'first_name',
             'middle_name',
             'no_middle_name',

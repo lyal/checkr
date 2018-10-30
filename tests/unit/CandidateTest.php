@@ -26,6 +26,7 @@ class CandidateTest extends UnitTestCase
             'object'                         => 'candidate',
             'uri'                            => '/v1/candidates/e44aa283528e6fde7d542194',
             'created_at'                     => '2014-01-18T12:34:00Z',
+            'updated_at'                     => '2014-01-19T12:34:00Z',
             'first_name'                     => 'John',
             'middle_name'                    => 'Alfred',
             'no_middle_name'                 => false,
@@ -43,14 +44,14 @@ class CandidateTest extends UnitTestCase
             'copy_requested'                 => false,
             'custom_id'                      => null,
             'report_ids'                     => [
-                    '532e71cfe88a1d4e8d00000d',
-                ],
+                '532e71cfe88a1d4e8d00000d',
+            ],
             'geo_ids' => [
-                    '79f943e212cce7de21c054a8',
-                    '7299c2c22ebb19abb0688a6c',
-                ],
+                '79f943e212cce7de21c054a8',
+                '7299c2c22ebb19abb0688a6c',
+            ],
             'document_ids' => [
-                ],
+            ],
         ];
 
         $candidate = $this->getCandidate($values);
