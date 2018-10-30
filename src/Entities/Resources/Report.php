@@ -51,7 +51,8 @@ class Report extends AbstractResource
             'document_ids',
             'geo_ids',
             'tags',
-            'arrest_search_id'
+            'arrest_search_id',
+            'self_disclosure_ids'
         ]);
         parent::__construct($values, $client);
     }
