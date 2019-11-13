@@ -14,24 +14,11 @@ class Invitation extends AbstractResource
     /**
      * Invitation constructor.
      *
-     * @param array|null  $values
+     * @param array|null $values
      * @param Client|null $client
      */
     public function __construct($values = null, Client $client = null)
     {
-        $this->setFields([
-            'id',
-            'object',
-            'uri',
-            'invitation_url',
-            'status',
-            'created_at',
-            'expires_at',
-            'deleted_at',
-            'completed_at',
-            'package',
-            'candidate_id',
-        ]);
         parent::__construct($values, $client);
     }
 }

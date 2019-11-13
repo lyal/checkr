@@ -21,8 +21,8 @@ class Client
     /**
      * Client constructor.
      *
-     * @param string|null       $key
-     * @param array             $options
+     * @param string|null $key
+     * @param array $options
      * @param GuzzleClient|null $guzzle
      */
     public function __construct($key = null, array $options = [], GuzzleClient $guzzle = null)
@@ -53,13 +53,13 @@ class Client
     /**
      * Fetch an API resource to handle the client request.
      *
-     * @param string                               $name
-     * @param array                                $args
+     * @param string $name
+     * @param array $args
      * @param \Lyal\Checkr\Entities\AbstractEntity $previousObject
      *
+     * @return mixed
      * @throws UnknownResourceException
      *
-     * @return mixed
      */
     public function api($name, $args, $previousObject = null)
     {
@@ -136,7 +136,7 @@ class Client
      *
      * @return array
      */
-    public function setOptions(array $options) : array
+    public function setOptions(array $options): array
     {
         return $this->options = $options;
     }
@@ -157,7 +157,7 @@ class Client
     /**
      * @return array
      */
-    public function getOptions() : array
+    public function getOptions(): array
     {
         return $this->options;
     }
@@ -186,8 +186,9 @@ class Client
      * @param $method
      * @param $path
      * @param array $options
-     * @param bool  $returnResponse
+     * @param bool $returnResponse
      *
+     * @return mixed
      * @throws \Lyal\Checkr\Exceptions\UnhandledRequestError
      * @throws \Lyal\Checkr\Exceptions\Client\Unauthorized
      * @throws \Lyal\Checkr\Exceptions\Client\NotFound
@@ -196,18 +197,17 @@ class Client
      * @throws \Lyal\Checkr\Exceptions\Client\Conflict
      * @throws \Lyal\Checkr\Exceptions\Client\BadRequest
      *
-     * @return mixed
      */
     public function request($method, $path, array $options = [])
     {
         $body = '';
         $options = array_merge($this->getOptions(), $options);
-        $options['auth'] = [$this->getKey().':', ''];
+        $options['auth'] = [$this->getKey() . ':', ''];
 
         try {
-            $response = $this->getHttpClient()->request($method, $this->getApiEndPoint().$path, $options);
+            $response = $this->getHttpClient()->request($method, $this->getApiEndPoint() . $path, $options);
             $this->setLastResponse($response);
-            $body = json_decode((string) $response->getBody());
+            $body = json_decode((string)$response->getBody());
         } catch (BadResponseException $exception) {
             $this->handleError($exception);
         }

@@ -2,8 +2,6 @@
 
 namespace Lyal\Checkr\Traits;
 
-use Lyal\Checkr\Exceptions\InvalidAttributeException;
-
 trait HasAttributes
 {
     abstract public function getFields();
@@ -27,17 +25,14 @@ trait HasAttributes
     /**
      * @param $key
      *
-     * @throws InvalidAttributeException
-     *
      * @return mixed
+     *
      */
     public function __get($key)
     {
         if ($this->checkField($key) && array_key_exists($key, $this->attributes)) {
             return $this->attributes[$key] ?? null;
         }
-
-        throw new InvalidAttributeException(get_class($this), $key);
     }
 
     /**
@@ -47,14 +42,9 @@ trait HasAttributes
      * @param $key
      * @param $value
      *
-     * @throws InvalidAttributeException
      */
     public function __set($key, $value)
     {
-        if (!$this->checkField($key)) {
-            throw new InvalidAttributeException(get_class($this), $key);
-        }
-
         $this->attributes[$key] = $value;
     }
 
@@ -63,9 +53,8 @@ trait HasAttributes
      *
      * @param $key
      *
-     * @throws InvalidAttributeException
-     *
      * @return bool
+     *
      */
     public function __isset($key)
     {
@@ -84,7 +73,7 @@ trait HasAttributes
      *
      * @return bool
      */
-    public function checkField($field) : bool
+    public function checkField($field): bool
     {
         if (!$this->checkFields) {
             return true;
@@ -92,8 +81,8 @@ trait HasAttributes
 
         return
             $field === 'include'
-            || in_array(str_singular($field).'_id', $this->getFields(), false)
-            || in_array(str_singular($field).'_ids', $this->getFields(), false)
+            || in_array(str_singular($field) . '_id', $this->getFields(), false)
+            || in_array(str_singular($field) . '_ids', $this->getFields(), false)
             || in_array($field, $this->getFields(), false)
             || in_array($field, $this->getHidden(), false);
     }

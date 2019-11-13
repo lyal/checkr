@@ -13,20 +13,10 @@ class Program extends AbstractResource
      * Program constructor.
      *
      * @param null|string|array $values
-     * @param null|Client       $client
+     * @param null|Client $client
      */
     public function __construct($values = null, Client $client = null)
     {
-        $this->setFields([
-            'id',
-            'uri',
-            'object',
-            'name',
-            'created_at',
-            'deleted_at',
-            'package_ids',
-            'geo_ids',
-        ]);
         parent::__construct($values, $client);
     }
 }

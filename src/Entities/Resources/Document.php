@@ -10,35 +10,18 @@ class Document extends AbstractResource
      * Document constructor.
      *
      * @param null|string|array $values
-     * @param null|Client       $client
+     * @param null|Client $client
      */
     public function __construct($values = null, Client $client = null)
     {
-        $this->setFields([
-            'id',
-            'object',
-            'type',
-            'created_at',
-            'download_uri',
-            'filesize',
-            'filename',
-            'content_type',
-            'candidate_id',
-        ]);
-
-        $this->setHidden([
-            'report_id',
-            'hidden',
-        ]);
-
         parent::__construct($values, $client);
     }
 
     /**
      * Upload a document using a multipart form.
      *
-     * @param string      $type
-     * @param string      $file
+     * @param string $type
+     * @param string $file
      * @param string|null $candidateId
      *
      * @return $this
