@@ -20,7 +20,7 @@ trait HasAttributes
      */
     protected $hidden = [];
 
-    public $checkFields = true;
+    public $checkFields = false;
 
     /**
      * @param $key

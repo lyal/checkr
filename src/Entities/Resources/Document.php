@@ -14,8 +14,14 @@ class Document extends AbstractResource
      */
     public function __construct($values = null, Client $client = null)
     {
+        $this->setHidden([
+            'report_id',
+            'hidden',
+        ]);
+
         parent::__construct($values, $client);
     }
+
 
     /**
      * Upload a document using a multipart form.

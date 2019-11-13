@@ -17,6 +17,11 @@ class Geo extends AbstractResource
      */
     public function __construct($values = null, Client $client = null)
     {
+        $this->setHidden([
+            'candidate_id',
+            'report_id',
+        ]);
+
         parent::__construct($values, $client);
     }
 }
