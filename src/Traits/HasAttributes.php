@@ -28,7 +28,6 @@ trait HasAttributes
      * @param $key
      *
      * @return mixed
-     *
      */
     public function __get($key)
     {
@@ -43,7 +42,6 @@ trait HasAttributes
      *
      * @param $key
      * @param $value
-     *
      */
     public function __set($key, $value)
     {
@@ -56,7 +54,6 @@ trait HasAttributes
      * @param $key
      *
      * @return bool
-     *
      */
     public function __isset($key)
     {
@@ -83,8 +80,8 @@ trait HasAttributes
 
         return
             $field === 'include'
-            || in_array(Str::singular($field) . '_id', $this->getFields(), false)
-            || in_array(Str::singular($field) . '_ids', $this->getFields(), false)
+            || in_array(Str::singular($field).'_id', $this->getFields(), false)
+            || in_array(Str::singular($field).'_ids', $this->getFields(), false)
             || in_array($field, $this->getFields(), false)
             || in_array($field, $this->getHidden(), false);
     }

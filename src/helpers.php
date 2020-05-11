@@ -13,7 +13,8 @@ if (!function_exists('str_replace_tokens')) {
             $subject = str_replace(
                 $prefix.$token,
                 $value,
-                $subject);
+                $subject
+            );
         }
 
         return $subject;

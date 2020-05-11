@@ -10,7 +10,8 @@ use Lyal\Checkr\Traits\HasAttributes;
 
 abstract class AbstractEntity
 {
-    use HasAttributes, Getable;
+    use HasAttributes;
+    use Getable;
 
     /**
      * Define the field allowed for each resource
