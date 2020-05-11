@@ -1,4 +1,4 @@
- <?php
+<?php
 
 return [
     'production_key'         => env('CHECKR_PRODUCTION_KEY', ''),
