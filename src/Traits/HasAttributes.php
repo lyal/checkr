@@ -2,6 +2,8 @@
 
 namespace Lyal\Checkr\Traits;
 
+use Illuminate\Support\Str;
+
 trait HasAttributes
 {
     abstract public function getFields();
@@ -81,8 +83,8 @@ trait HasAttributes
 
         return
             $field === 'include'
-            || in_array(str_singular($field) . '_id', $this->getFields(), false)
-            || in_array(str_singular($field) . '_ids', $this->getFields(), false)
+            || in_array(Str::singular($field) . '_id', $this->getFields(), false)
+            || in_array(Str::singular($field) . '_ids', $this->getFields(), false)
             || in_array($field, $this->getFields(), false)
             || in_array($field, $this->getHidden(), false);
     }
