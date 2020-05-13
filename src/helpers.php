@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Str;
+
 // @codeCoverageIgnoreStart
 if (!function_exists('str_replace_tokens')) {
 
@@ -11,7 +13,8 @@ if (!function_exists('str_replace_tokens')) {
             $subject = str_replace(
                 $prefix.$token,
                 $value,
-                $subject);
+                $subject
+            );
         }
 
         return $subject;
@@ -41,6 +44,6 @@ if (!function_exists('resourceNameFormat')) {
     // @codeCoverageIgnoreEnd
     function resourceNameFormat($name)
     {
-        return studly_case(str_singular(str_replace('test_', '', $name)));
+        return Str::studly(Str::singular(str_replace('test_', '', $name)));
     }
 }

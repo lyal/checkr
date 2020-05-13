@@ -2,6 +2,7 @@
 
 namespace Lyal\Checkr\Entities;
 
+use Illuminate\Support\Str;
 use Lyal\Checkr\Client;
 use Lyal\Checkr\Exceptions\UnknownResourceException;
 use Lyal\Checkr\Traits\Getable;
@@ -9,7 +10,8 @@ use Lyal\Checkr\Traits\HasAttributes;
 
 abstract class AbstractEntity
 {
-    use HasAttributes, Getable;
+    use HasAttributes;
+    use Getable;
 
     /**
      * Define the field allowed for each resource
@@ -129,7 +131,7 @@ abstract class AbstractEntity
     {
         $object = $object ?? $this;
 
-        return snake_case(str_plural((new \ReflectionClass($object))->getShortName()));
+        return Str::snake(Str::plural((new \ReflectionClass($object))->getShortName()));
     }
 
     /**

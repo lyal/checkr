@@ -2,6 +2,7 @@
 
 namespace Lyal\Checkr\Laravel\Helpers;
 
+use Illuminate\Support\Str;
 use Lyal\Checkr\Exceptions\UnhandledCheckrWebhook;
 
 class EventHelper
@@ -15,7 +16,7 @@ class EventHelper
 
     public function dispatch()
     {
-        $className = '\\Lyal\\Checkr\\Laravel\\Events\\'.studly_case(str_replace('.', '-', $this->event['type']));
+        $className = '\\Lyal\\Checkr\\Laravel\\Events\\'.Str::studly(str_replace('.', '-', $this->event['type']));
         if (class_exists($className)) {
             event(new $className($this->event));
         } else {
