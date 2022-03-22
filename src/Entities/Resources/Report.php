@@ -20,4 +20,24 @@ class Report extends AbstractResource
     {
         parent::__construct($values, $client);
     }
+
+    /**
+     * Complete an existing report.
+     *
+     * @return $this
+     */
+    public function complete()
+    {
+        $path = $this->processPath('reports/:report_id/complete', ['report_id' => $this->getAttribute('id')]);
+        $response = $this->completeRequest($path);
+        $this->setAttributes([]);
+        $this->setValues($response);
+
+        return $this;
+    }
+
+    protected function completeRequest($path)
+    {
+        return $this->getClient()->request('post', $path);
+    }
 }
