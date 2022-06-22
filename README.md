@@ -5,7 +5,7 @@ focusing on ease of use.
 
 # Requirements
     
-    PHP 7.1+
+    PHP 8.0.*
 
 # Installation
 

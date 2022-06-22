@@ -18,7 +18,7 @@ class Candidate extends AbstractResource
      * @param null|string|array $values
      * @param null|Client $client
      */
-    public function __construct($values = null, Client $client = null)
+    public function __construct($values = null, $client = null)
     {
         parent::__construct($values, $client);
     }
