@@ -1,6 +1,6 @@
 {
-  "name": "wildfrustration/checkr",
-  "description": "A PHP client for checkr.io, a background screening service - This is fork of lyal/checker",
+  "name": "lyal/checkr",
+  "description": "A PHP client for checkr.io, a background screening service ",
   "keywords": [
     "laravel",
     "symphony",
@@ -9,8 +9,8 @@
   "license": "BSD-2-Clause",
   "authors": [
     {
-      "name": "wildfrustration",
-      "email": "wildfrustration@yahoo.com"
+      "name": "lyal",
+      "email": "lyal@pullrequest.com"
     }
   ],
   "require": {
