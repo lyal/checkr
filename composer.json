@@ -1,6 +1,6 @@
 {
-  "name": "lyal/checkr",
-  "description": "A PHP client for checkr.io, a background screening service ",
+  "name": "wildfrustration/checkr",
+  "description": "A PHP client for checkr.io, a background screening service - This is fork of lyal/checker",
   "keywords": [
     "laravel",
     "symphony",
@@ -9,15 +9,15 @@
   "license": "BSD-2-Clause",
   "authors": [
     {
-      "name": "lyal",
-      "email": "lyal@pullrequest.com"
+      "name": "wildfrustration",
+      "email": "wildfrustration@yahoo.com"
     }
   ],
   "require": {
     "php": "8.0.*",
-    "guzzlehttp/guzzle": "~7.0|~6.0|~5.0|~4.0",
-    "illuminate/support": "~8.0|~7.0|~6.0|^5.5",
-    "illuminate/routing": "~8.0|~7.0|~6.0|^5.5"
+    "guzzlehttp/guzzle": "7.4.*",
+    "illuminate/support": "9.18.0",
+    "illuminate/routing": "9.18.0"
   },
   "require-dev": {
     "phpunit/phpunit": "~9.5.18",
