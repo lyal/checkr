@@ -1,5 +1,5 @@
 {
-  "name": "lyal/checkr",
+  "name": "fork-lyal/checkr",
   "description": "A PHP client for checkr.io, a background screening service ",
   "keywords": [
     "laravel",
