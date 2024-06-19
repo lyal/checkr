@@ -32,7 +32,7 @@ abstract class AbstractEntity
      * @param string|array|null $values
      * @param Client|null       $client
      */
-    public function __construct($values = null, $client = null)
+    public function __construct($values = null, Client $client = null)
     {
         $this->setValues($values);
         $this->setClient($client);

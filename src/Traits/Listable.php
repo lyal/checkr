@@ -2,6 +2,8 @@
 
 namespace Lyal\Checkr\Traits;
 
+use Lyal\Checkr\Client;
+
 trait Listable
 {
     /**
@@ -25,7 +27,7 @@ trait Listable
 
     abstract protected function getRequest($path = null, $parameters = null);
 
-    abstract protected function __construct($values, $client);
+    abstract protected function __construct($values = null, Client $client = null);
 
     protected $listPath;
 
