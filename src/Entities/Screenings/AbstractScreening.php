@@ -13,7 +13,7 @@ abstract class AbstractScreening extends AbstractEntity
      * @param array|null|string $values
      * @param Client|null       $client
      */
-    public function __construct($values, Client $client = null)
+    public function __construct($values = null, Client $client = null)
     {
         $this->checkFields = false;
         parent::__construct($values, $client);
